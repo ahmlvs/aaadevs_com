@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+header img {
+  max-height: 50px;
+  vertical-align: middle;
+}
+header h1 {
+  display: inline;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+.container {
+  padding: 1rem;
+  max-width: 800px;
+  margin: auto;
+}
+.info-block {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+}
+form {
+  background: #f9f9f9;
+  padding: 1rem;
+  margin: 1rem 0;
+  border: 1px solid #ddd;
+}
+form label {
+  display: block;
+  margin: 0.5rem 0 0.2rem;
+}
+form button {
+  display: block;
+  background-color: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  border: none;
+  cursor: pointer;
+}
+#success-message {
+  color: green;
+  margin: 1rem 0;
+  display: none;
+}
+#error-message {
+  color: red;
+  margin: 1rem 0;
+  display: none;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+}

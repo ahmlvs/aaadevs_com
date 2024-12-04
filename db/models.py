@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String
 from db.database import Base
 
-class ContactFormDB(Base):
+class ContactFormModel(Base):
     __tablename__ = "contact_form"
 
     id = Column(Integer, primary_key=True, index=True)

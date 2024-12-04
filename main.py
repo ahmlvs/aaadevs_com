@@ -1,12 +1,10 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 from routers import index_html, contact_form_submit
-from db.database import engine
+from db.database import async_engine
 from db.models import Base
 import uvicorn
 
-# Initialize database tables
-Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
@@ -16,6 +14,14 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Include the routers
 app.include_router(index_html.router)
 app.include_router(contact_form_submit.router, prefix="/api/v1")
+
+# Define startup function
+async def startup_event():
+    async with async_engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+
+# Register the startup event handler
+app.add_event_handler("startup", startup_event)
 
 
 if __name__ == "__main__":

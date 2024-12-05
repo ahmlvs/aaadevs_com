@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
-from routers import index_html, contact_form_submit
+from routers import index_html, contact_form_submit, not_found_404_html
 from db.database import async_engine
 from db.models import Base
 import uvicorn
@@ -14,6 +14,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Include the routers
 app.include_router(index_html.router)
 app.include_router(contact_form_submit.router, prefix="/api/v1")
+
+# Register the global 404 handler
+app.add_exception_handler(404, not_found_404_html.custom_404_handler)
 
 # Define startup function
 async def startup_event():

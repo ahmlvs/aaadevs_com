@@ -5,6 +5,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
 from db.models import ContactFormModel
 from db.database import get_db_session
+from datetime import datetime, timedelta
 
 router = APIRouter()
 
@@ -26,12 +27,12 @@ async def contact_form_submit(
         # return JSONResponse(content={"message": f"Form validation failed: {e.errors()}"}, status_code=400)
         return JSONResponse(content={"message": "Incorrect form data!"}, status_code=400)
     
-    # Check for duplicate email (optional)
-    query = select(ContactFormModel).where(ContactFormModel.email == form_data.email)
+    # Check if last entry was made within 24 hours
+    query = select(ContactFormModel).where(ContactFormModel.email == form_data.email).order_by(ContactFormModel.created_at.desc())
     result = await db.execute(query)
     existing_entry = result.scalars().first()
-    if existing_entry:
-        return JSONResponse(content={"message": "Email already exists!"}, status_code=400)
+    if existing_entry and existing_entry.created_at > datetime.now() - timedelta(days=1):
+        return JSONResponse(content={"message": "You have already submitted a form within the last 24 hours!"}, status_code=400)
 
     # Save the validated form data to the database
     contact_entry = ContactFormModel(name=form_data.name, email=form_data.email)

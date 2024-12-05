@@ -28,13 +28,4 @@ app.add_event_handler("startup", startup_event)
 
 
 if __name__ == "__main__":
-    import os
-    from dotenv import load_dotenv
-    load_dotenv()
-
-    PRODUCTION = os.getenv("PRODUCTION", "False") == "True"
-
-    if PRODUCTION:
-        uvicorn.run("main:app", host="0.0.0.0", port=8000)
-    else:
-        uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
+    uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)

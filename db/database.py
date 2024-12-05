@@ -7,10 +7,10 @@ from sqlalchemy.orm import sessionmaker
 load_dotenv()
 
 # Get the environment variable to check production mode
-PRODUCTION = os.getenv("PRODUCTION", "False") == "True"
+PRODUCTION = os.getenv("PRODUCTION", "dev")
 
 # Determine the database URL based on the environment
-if PRODUCTION:
+if PRODUCTION == "prod":
 
     # PostgreSQL Production Database URL
     # "postgresql+asyncpg://user:password@localhost/prod_db"

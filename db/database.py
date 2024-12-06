@@ -22,7 +22,6 @@ if PRODUCTION == "prod":
 
     ssl_args = {
         'ssl': True,
-        'local_infile': 1
     }
 
     # Create an asynchronous engine

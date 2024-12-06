@@ -41,6 +41,6 @@ async def contact_form_submit(
 
     # Process the validated form data
     return JSONResponse(
-        content={"message": f"Form submitted successfully! Hello, {form_data.name}!"}, 
+        content={"message": f"Hello, <b>{form_data.name}</b>! Form submitted successfully!"}, 
         status_code=200
     )

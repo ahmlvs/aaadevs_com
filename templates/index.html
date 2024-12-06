@@ -2,32 +2,52 @@
 
 {% block content %}
     <div class="container">
-        <!-- Info Block 1 -->
-        <div class="info-block">
-            <h2>Info Block 1</h2>
-            <p>This is some information about the site or your project. You can add details here.</p>
+        <!-- Main Block -->
+        <div class="main-block">
+            <div class="main-block-text">
+                <h1>AAA Devs</h1>
+                <h2>We provide professional developers for your Telegram Mini Apps and Discord Web Apps.</h2>
+            </div>
+            <div class="main-block-form">
+                <form id="contact-form">
+                    <h2>Let's Collaborate to Build the Future</h2>
+                    <p class="form-description">
+                        Get access to our TMA market insights for free!
+                    </p>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                    
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    
+                    <button type="submit">Submit</button>
+
+                    <div id="success-message" class="form-message success-message"></div>
+                    <div id="error-message" class="form-message error-message"></div>
+                </form>
+            </div>
         </div>
 
-        <!-- Info Block 2 -->
         <div class="info-block">
-            <h2>Info Block 2</h2>
-            <p>Here's another section for information or features you want to highlight.</p>
+            <h2>Why Choose AAA Devs?</h2>
+            <div class="sub-blocks">
+                <div class="sub-block">
+                    <img src="/static/icons/star-rating-icon.webp" alt="Expertise Icon">
+                    <h3>Expertise</h3>
+                    <p>Top-notch developers for Telegram and Discord apps.</p>
+                </div>
+                <div class="sub-block">
+                    <img src="/static/icons/innovation-creativity-icon.webp" alt="Innovation Icon">
+                    <h3>Innovation</h3>
+                    <p>Creative and scalable app solutions tailored to your needs.</p>
+                </div>
+                <div class="sub-block">
+                    <img src="/static/icons/how-to-question-icon.webp" alt="Support Icon">
+                    <h3>Support</h3>
+                    <p>Dedicated support throughout your journey.</p>
+                </div>
+            </div>
         </div>
-
-        <!-- Form Block -->
-        <form id="contact-form">
-            <h2>Contact Us</h2>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <button type="submit">Submit</button>
-        </form>
-
-        <!-- Messages -->
-        <div id="success-message"></div>
-        <div id="error-message"></div>
+        
     </div>
 {% endblock %}

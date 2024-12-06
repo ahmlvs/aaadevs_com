@@ -11,4 +11,4 @@ templates = Jinja2Templates(directory="templates")
 
 # Define a custom 404 error handler
 async def custom_404_handler(request: Request, exc: HTTPException):
-    return templates.TemplateResponse("404.html", {"request": request}, status_code=404)
+    return templates.TemplateResponse("404.html", {"request": request, "title": "404 - Page Not Found | AAA Devs"}, status_code=404)

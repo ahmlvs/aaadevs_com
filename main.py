@@ -24,7 +24,7 @@ async def startup_event():
         await conn.run_sync(Base.metadata.create_all)
 
 # Register the startup event handler
-# app.add_event_handler("startup", startup_event)
+app.add_event_handler("startup", startup_event)
 
 
 if __name__ == "__main__":

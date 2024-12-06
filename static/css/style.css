@@ -61,18 +61,60 @@ header img {
   flex: 1;
   margin-right: 2rem;
   text-align: left;
+  position: relative;
+  padding: 1rem; /* Adjusted padding */
+  overflow: hidden;
+}
+
+.main-block-text .floating-icons-top,
+.main-block-text .floating-icons-bottom {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: none; /* Disable interaction with icons */
+  z-index: 0; /* Keep icons behind the text */
+}
+
+.floating-icons-top {
+  margin-bottom: 2rem; /* Add spacing below top icons */
+}
+
+.floating-icons-bottom {
+  margin-top: 2rem; /* Add spacing above bottom icons */
 }
 
 .main-block-text h1 {
   font-size: 2.5rem;
   color: #333;
-  margin-bottom: 1rem;
+  text-align: left;
+  position: relative;
+  z-index: 1;
 }
 
 .main-block-text h2 {
   font-size: 1.5rem;
   color: #555;
   margin: 0;
+  text-align: left;
+  position: relative;
+  z-index: 1;
+}
+
+.floating-icon {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  opacity: 0.8;
+  object-fit: contain;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.floating-icon:hover {
+  transform: scale(1.2);
+  opacity: 1;
 }
 
 .main-block-form {

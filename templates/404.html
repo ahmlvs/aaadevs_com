@@ -2,10 +2,17 @@
 
 {% block content %}
 <div class="container">
-    <div class="info-block error-404">
-        <h1>404</h1>
+    <div class="error-404">
+        <h1>404 - Not Found</h1>
+
+        <!-- Capibara Image -->
+        <img src="/static/images/capibara.webp" alt="Capibara" class="error-image">
+
+        <!-- Error Message -->
         <p>Oops! The page you're looking for doesn't exist.</p>
-        <a href="/" class="back-home">Go Back Home</a>
+
+        <!-- Back Home Button -->
+        <a href="/" class="back-home-button">>_ Go Back Home</a>
     </div>
 </div>
 {% endblock %}

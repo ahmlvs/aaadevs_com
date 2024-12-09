@@ -4,9 +4,17 @@ from routers import index_html, contact_form_submit, not_found_404_html
 from db.database import async_engine
 from db.models import Base
 import uvicorn
+import os
+from dotenv import load_dotenv
+load_dotenv()
 
+# Get the environment variable to check production mode
+PRODUCTION = os.getenv("PRODUCTION", "dev")
 
-app = FastAPI()
+if PRODUCTION == "prod":
+    app = FastAPI(openapi_url=None)
+else:
+    app = FastAPI(debug=True)
 
 # Mount a static folder (if needed for CSS/JS files)
 app.mount("/static", StaticFiles(directory="static"), name="static")

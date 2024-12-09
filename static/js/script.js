@@ -28,9 +28,8 @@ if (form) {
         errorMessage.classList.remove("visible");
         form.reset();
       } else {
-        const errorData = await response.json();
         errorMessage.innerHTML =
-          errorData.message || "An error occurred. Please try again.";
+          data.message || "An error occurred. Please try again.";
         errorMessage.classList.add("visible");
         successMessage.classList.remove("visible");
       }

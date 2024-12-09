@@ -14,8 +14,14 @@ if (form) {
         body: formData,
       });
 
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
       if (response.ok) {
-        const data = await response.json();
         successMessage.innerHTML =
           data.message || "Your submission was successful!";
         successMessage.classList.add("visible");
@@ -37,7 +43,6 @@ if (form) {
     // Hide success message after 5 seconds
     setTimeout(() => {
       successMessage.classList.remove("visible");
-      // errorMessage.classList.remove("visible");
     }, 5000);
   });
 }
@@ -48,19 +53,23 @@ const techNameWrapper = document.getElementById("tech-name-wrapper");
 
 // Function to reset the text and color
 function resetTechName() {
-  techName.textContent = "technology,";
-  techNameWrapper.style.color = "";
+  if (techName && techNameWrapper) {
+    techName.textContent = "technology,";
+    techNameWrapper.style.color = "";
+  }
 }
 
 // Add event listeners to each technology item
-techItems.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    const tech = item.getAttribute("data-tech");
-    const color = item.getAttribute("data-color");
+if (techItems && techName && techNameWrapper) {
+  techItems.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      const tech = item.getAttribute("data-tech");
+      const color = item.getAttribute("data-color");
 
-    techName.textContent = `${tech},`;
-    techNameWrapper.style.color = color;
+      techName.textContent = `${tech},`;
+      techNameWrapper.style.color = color;
+    });
+
+    item.addEventListener("mouseout", resetTechName);
   });
-
-  item.addEventListener("mouseout", resetTechName);
-});
+}

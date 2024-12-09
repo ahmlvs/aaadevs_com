@@ -223,11 +223,11 @@ header img {
   text-align: left;
 }
 
-.selected-text {
+/* .selected-text {
   font-weight: bold;
   text-transform: uppercase;
   font-size: 1.6rem;
-}
+} */
 
 .form-block-form h2 {
   font-size: 1.5rem;

@@ -10,13 +10,9 @@ from routers import (
 )
 from db.database import async_engine
 from db.models import Base
+from config import PRODUCTION
 import uvicorn
-import os
-from dotenv import load_dotenv
-load_dotenv()
 
-# Get the environment variable to check production mode
-PRODUCTION = os.getenv("PRODUCTION", "dev")
 
 if PRODUCTION == "prod":
     app = FastAPI(openapi_url=None)

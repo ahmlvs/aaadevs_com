@@ -4,11 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
-    <title>{{ title }}</title>
+    <title>{{ data.title }}</title>
+    <meta name="description" content="{{ data.description }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
+
+    {% if data.PRODUCTION == "prod" %}
+        {% include "google_analytics.html" %}
+        {% include "yandex_metrika.html" %}
+    {% endif %}
 </head>
 <body>
     <div class="header">

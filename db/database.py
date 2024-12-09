@@ -1,13 +1,8 @@
 import os
-from dotenv import load_dotenv
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-
-load_dotenv()
-
-# Get the environment variable to check production mode
-PRODUCTION = os.getenv("PRODUCTION", "dev")
+from config import PRODUCTION, PRODUCTION_DB_URL
 
 # Determine the database URL based on the environment
 if PRODUCTION == "prod":
@@ -18,7 +13,7 @@ if PRODUCTION == "prod":
     # MySQL Production Database URL
     # "mysql+aiomysql://user:password@localhost/prod_db"
 
-    DATABASE_URL = os.getenv("PRODUCTION_DB_URL")
+    DATABASE_URL = PRODUCTION_DB_URL
 
     ssl_args = {
         'ssl': True,

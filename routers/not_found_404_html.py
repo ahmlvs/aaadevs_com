@@ -13,7 +13,12 @@ templates = Jinja2Templates(directory="templates")
 async def custom_404_handler(request: Request, exc: HTTPException):
     data = {
         "PRODUCTION": PRODUCTION,
+        "page": "404",
         "title": "404 - Page Not Found | AAA Devs",
-        "description": "The page you are looking for does not exist. Please check the URL and try again."
+        "description": "The page you are looking for does not exist. Please check the URL and try again.",
+        "url": "https://aaadevs.com/404",
+        "canonical": "https://aaadevs.com/404",
+        "image": "/static/images/capibara.webp",
+        "robots": "noindex, nofollow",
     }
     return templates.TemplateResponse("404.html", {"request": request, "data": data}, status_code=404)

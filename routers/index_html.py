@@ -13,7 +13,12 @@ templates = Jinja2Templates(directory="templates")
 async def index_html(request: Request):
     data = {
         "PRODUCTION": PRODUCTION,
+        "page": "index",
         "title": "AAA Devs - Building Telegram and Discord Apps to Scale Your Business",
-        "description": "AAA Devs creates innovative Telegram and Discord applications designed to help your business build, scale, and thrive."
+        "description": "AAA Devs creates innovative Telegram and Discord applications designed to help your business build, scale, and thrive.",
+        "url": "https://aaadevs.com",
+        "canonical": "https://aaadevs.com",
+        "image": "/static/images/logo.webp",
+        "robots": "index, follow",
     }
     return templates.TemplateResponse("index.html", {"request": request, "data": data})

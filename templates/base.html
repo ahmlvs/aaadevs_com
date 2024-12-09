@@ -6,9 +6,11 @@
     <link id="favicon" rel="icon" type="image/x-icon" href="/favicon.ico">
     <meta http-equiv="Content-Security-Policy" content="
         default-src 'self';
-        script-src 'self' https://trusted.cdn.com;
+        script-src 'self' https://trusted.cdn.com https://www.googletagmanager.com https://www.google-analytics.com https://mc.yandex.ru;
+        connect-src 'self' https://www.google-analytics.com https://stats.g.doubleclick.net https://mc.yandex.ru;
         style-src 'self' https://fonts.googleapis.com;
         font-src 'self' https://fonts.gstatic.com;
+        img-src 'self' https://www.google-analytics.com https://mc.yandex.ru data:;
     ">
     <title>{{ data.title }}</title>
     <meta name="description" content="{{ data.description }}">

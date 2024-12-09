@@ -57,7 +57,7 @@ header img {
 /* Main Block Styling */
 .main-block {
   position: relative;
-  height: 100vh;
+  height: 40rem;
   background-image: url("/static/images/background.png"); /* Add your background image path */
   background-size: cover;
   background-position: bottom;
@@ -68,7 +68,7 @@ header img {
   text-align: center;
   overflow: hidden; /* Prevents any content overflow */
   padding: 0rem 1rem; /* Reduces top padding and keeps horizontal padding */
-  margin-bottom: 6rem;
+  margin-bottom: 2rem;
 }
 
 /* Main Content Styling */
@@ -107,7 +107,7 @@ header img {
 /* Logo Animation Block */
 .logo-animation-block {
   position: absolute;
-  bottom: 5rem; /* Adds more space at the bottom after the animated text */
+  bottom: 0rem; /* Adds more space at the bottom after the animated text */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -446,7 +446,7 @@ footer {
   }
 
   .logo-animation-block {
-    bottom: 4rem;
+    bottom: 3rem;
   }
 
   .animated-text {

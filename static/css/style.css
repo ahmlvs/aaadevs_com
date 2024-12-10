@@ -56,26 +56,20 @@ header img {
 
 /* Main Block Styling */
 .main-block {
-  position: relative;
-  height: 40rem;
-  background-image: url("/static/images/background.webp"); /* Add your background image path */
-  background-size: cover;
-  background-position: bottom;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Aligns content closer to the top */
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  overflow: hidden; /* Prevents any content overflow */
-  padding: 0rem 1rem; /* Reduces top padding and keeps horizontal padding */
-  margin-bottom: 2rem;
+  overflow: hidden;
+  padding: 0rem 1rem;
 }
 
 /* Main Content Styling */
 .main-content {
-  max-width: 90%; /* Limits content width to prevent overflow */
-  word-wrap: break-word; /* Ensures long text breaks onto a new line */
-  margin-top: 2rem; /* Adds a little space after the top padding */
+  max-width: 90%;
+  word-wrap: break-word;
+  margin-top: 2rem;
 }
 
 .main-content h1 {
@@ -97,17 +91,20 @@ header img {
   border-radius: 5px;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  margin-bottom: 2rem; /* Slightly reduced space below the button */
+  /* margin-bottom: 2rem; */
 }
 
 .start-button:hover {
   opacity: 0.7;
 }
 
+#cw {
+  width: 100%;
+  height: 15rem;
+}
+
 /* Logo Animation Block */
 .logo-animation-block {
-  position: absolute;
-  bottom: 0rem; /* Adds more space at the bottom after the animated text */
   width: 100%;
   display: flex;
   justify-content: center;
@@ -115,11 +112,11 @@ header img {
 
 /* Enlarged Animated Text Styling */
 .animated-text {
-  font-size: 8rem; /* Adjust font size to fit within the container */
-  line-height: 1; /* Reduces line height to avoid extra spacing */
-  white-space: nowrap; /* Prevents text from wrapping */
-  overflow: hidden; /* Ensures no overflow issues */
-  font-weight: bold; /* Makes the text bold */
+  font-size: 8rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: bold;
 }
 
 /* Blinking Animation for the Underscore */
@@ -146,8 +143,6 @@ header img {
   align-items: center;
   padding: 2rem;
   background-color: var(--content--background-color);
-  /* border-radius: 10px; */
-  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
 }
 
 .form-block-text {
@@ -155,7 +150,7 @@ header img {
   margin-right: 2rem;
   text-align: left;
   position: relative;
-  padding: 1rem; /* Adjusted padding */
+  padding: 1rem;
   overflow: hidden;
 }
 
@@ -446,10 +441,6 @@ footer {
   .back-home-button {
     font-size: 0.9rem;
     padding: 0.5rem 1.5rem;
-  }
-
-  .logo-animation-block {
-    bottom: 3rem;
   }
 
   .animated-text {

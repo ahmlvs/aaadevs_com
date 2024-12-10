@@ -1,111 +1,287 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="container">
-        <!-- Main Block -->
-        <div class="main-block">
-            <div class="main-content">
-                <h1>Your complete platform for the software development</h1>
-                <p>AAA Devs develops Telegram and Discord apps to build, scale and grow your business.</p>
-                <a href="#form-block" class="start-button-link">
-                    <button class="start-button">>_ Start Development</button>
-                </a>
-            </div>
-
-            <div class="logo-animation-block">
-                <div class="logo-animation">
-                    <span class="animated-text">&gt;<span class="blink">_</span></span>
-                </div>
-            </div>
+<div class="container">
+    <!-- Main Block -->
+    <div class="main-block">
+        <div class="main-content">
+            <h1>Your complete platform for the software development</h1>
+            <p>AAA Devs develops Telegram and Discord apps to build, scale and grow your business.</p>
+            <a href="#form-block" class="start-button-link">
+                <button class="start-button">>_ Start Development</button>
+            </a>
         </div>
 
-        <!-- Form Block -->
-        <div id="form-block" class="form-block">
-            <div class="form-block-text">
-                <p>Seamless access to nearly <span class="selected-text">1 billion active users</span> with Telegram apps and superfans on Discord, <span class="selected-text">5x client engagement</span> boost.</p>
-            </div>
-            <div class="form-block-form">
-                <form id="contact-form">
-                    <h2>Elevate your business with Telegram and Discord apps</h2>
+        <canvas id="cw"></canvas>
 
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" placeholder="Your name goes here." autocomplete="name" required>
-                    
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" placeholder="Your email goes here." autocomplete="email" required>
-                    
-                    <button type="submit">>_ Submit</button>
-
-                    <div id="success-message" class="form-message success-message"></div>
-                    <div id="error-message" class="form-message error-message"></div>
-                </form>
+        <div class="logo-animation-block">
+            <div class="logo-animation">
+                <span class="animated-text">&gt;<span class="blink">_</span></span>
             </div>
         </div>
-
-        <!-- Technology Block -->
-        <div id="technology-block" class="technology-block">
-            <div class="tech-grid">
-              <!-- Text Block -->
-              <div class="tech-item text-block" data-tech="technology">
-                <div id="dynamic-text">
-                  <div id="dynamic-text-start">
-                    Your <span id="tech-name-wrapper"><span id="tech-name">technology,</span></span>
-                  </div>
-                  <div id="dynamic-text-end">your way.</div>
-                </div>
-              </div>
-            
-              <!-- Technology Icons with Links -->
-            <div class="tech-item" data-tech="Python" data-color="#3776AB">
-                <img src="/static/icons/python-programming-language-icon.webp" alt="Python" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="FastApi" data-color="#009688">
-                <img src="/static/icons/fast-api-icon.webp" alt="FastApi" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Django" data-color="#092E20">
-                <img src="/static/icons/django-icon.webp" alt="Django" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Flask" data-color="#000000">
-                <img src="/static/icons/flask-icon.webp" alt="Flask" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="HTML5" data-color="#E34F26">
-                <img src="/static/icons/html-icon.webp" alt="HTML5" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="JavaScript" data-color="#F7DF1E">
-                <img src="/static/icons/javascript-programming-language-icon.webp" alt="JavaScript" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="React" data-color="#61DAFB">
-                <img src="/static/icons/react-js-icon.webp" alt="React" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Angular" data-color="#DD0031">
-                <img src="/static/icons/angular-icon.webp" alt="Angular" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Vue.js" data-color="#42B883">
-                <img src="/static/icons/vue-js-icon.webp" alt="Vue.js" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Next.js" data-color="#000000">
-                <img src="/static/icons/next-js-icon.webp" alt="Next.js" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="PostgreSQL" data-color="#336791">
-                <img src="/static/icons/postgresql-icon.webp" alt="PostgreSQL" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="MySQL" data-color="#00758F">
-                <img src="/static/icons/mysql-icon.webp" alt="MySQL" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Redis" data-color="#DC382D">
-                <img src="/static/icons/redis-icon.webp" alt="Redis" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Kafka" data-color="#000000">
-                <img src="/static/icons/kafka-icon.webp" alt="Kafka" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="RabbitMQ" data-color="#FF6600">
-                <img src="/static/icons/rabbitmq-icon.webp" alt="RabbitMQ" class="icon" loading="lazy" width="60" height="60">
-            </div>
-            <div class="tech-item" data-tech="Kubernetes" data-color="#326CE5">
-                <img src="/static/icons/kubernetes-icon.webp" alt="Kubernetes" class="icon" loading="lazy" width="60" height="60">
-            </div>
-          </div>
-        </div>
-
     </div>
+
+    <!-- Form Block -->
+    <div id="form-block" class="form-block">
+        <div class="form-block-text">
+            <p>Seamless access to nearly <span class="selected-text">1 billion active users</span> with Telegram apps and superfans on Discord, <span class="selected-text">5x client engagement</span> boost.</p>
+        </div>
+        <div class="form-block-form">
+            <form id="contact-form">
+                <h2>Elevate your business with Telegram and Discord apps</h2>
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your name goes here." autocomplete="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Your email goes here." autocomplete="email" required>
+                
+                <button type="submit">>_ Submit</button>
+
+                <div id="success-message" class="form-message success-message"></div>
+                <div id="error-message" class="form-message error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Technology Block -->
+    <div id="technology-block" class="technology-block">
+        <div class="tech-grid">
+            <!-- Text Block -->
+            <div class="tech-item text-block" data-tech="technology">
+            <div id="dynamic-text">
+                <div id="dynamic-text-start">
+                Your <span id="tech-name-wrapper"><span id="tech-name">technology,</span></span>
+                </div>
+                <div id="dynamic-text-end">your way.</div>
+            </div>
+            </div>
+        
+            <!-- Technology Icons with Links -->
+        <div class="tech-item" data-tech="Python" data-color="#3776AB">
+            <img src="/static/icons/python-programming-language-icon.webp" alt="Python" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="FastApi" data-color="#009688">
+            <img src="/static/icons/fast-api-icon.webp" alt="FastApi" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Django" data-color="#092E20">
+            <img src="/static/icons/django-icon.webp" alt="Django" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Flask" data-color="#000000">
+            <img src="/static/icons/flask-icon.webp" alt="Flask" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="HTML5" data-color="#E34F26">
+            <img src="/static/icons/html-icon.webp" alt="HTML5" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="JavaScript" data-color="#F7DF1E">
+            <img src="/static/icons/javascript-programming-language-icon.webp" alt="JavaScript" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="React" data-color="#61DAFB">
+            <img src="/static/icons/react-js-icon.webp" alt="React" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Angular" data-color="#DD0031">
+            <img src="/static/icons/angular-icon.webp" alt="Angular" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Vue.js" data-color="#42B883">
+            <img src="/static/icons/vue-js-icon.webp" alt="Vue.js" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Next.js" data-color="#000000">
+            <img src="/static/icons/next-js-icon.webp" alt="Next.js" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="PostgreSQL" data-color="#336791">
+            <img src="/static/icons/postgresql-icon.webp" alt="PostgreSQL" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="MySQL" data-color="#00758F">
+            <img src="/static/icons/mysql-icon.webp" alt="MySQL" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Redis" data-color="#DC382D">
+            <img src="/static/icons/redis-icon.webp" alt="Redis" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Kafka" data-color="#000000">
+            <img src="/static/icons/kafka-icon.webp" alt="Kafka" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="RabbitMQ" data-color="#FF6600">
+            <img src="/static/icons/rabbitmq-icon.webp" alt="RabbitMQ" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        <div class="tech-item" data-tech="Kubernetes" data-color="#326CE5">
+            <img src="/static/icons/kubernetes-icon.webp" alt="Kubernetes" class="icon" loading="lazy" width="60" height="60">
+        </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+// animation block
+const canvas = document.getElementById("cw");
+const context = canvas.getContext("2d");
+context.globalAlpha = 0.5;
+
+const cursor = {
+    x: innerWidth / 2,
+    y: innerHeight / 2,
+};
+
+let particlesArray = [];
+
+generateParticles(101);
+setSize();
+anim();
+
+addEventListener("mousemove", (e) => {
+    cursor.x = e.clientX;
+    cursor.y = e.clientY;
+});
+
+canvas.addEventListener(
+    "touchmove",
+    (e) => {
+        const touch = e.touches[0];
+        cursor.x = touch.clientX;
+        cursor.y = touch.clientY;
+    },
+    { passive: true } // Make the listener passive to avoid blocking scrolling
+);
+
+addEventListener("resize", () => setSize());
+
+function generateParticles(amount) {
+    for (let i = 0; i < amount; i++) {
+    particlesArray[i] = new Particle(
+        innerWidth / 2,
+        innerHeight / 2,
+        16,
+        generateColor(),
+        0.04,
+    );
+    }
+}
+
+function generateColor() {
+    let hexSet = "0123456789ABCDEF";
+    let finalHexString = "#";
+    for (let i = 0; i < 6; i++) {
+    finalHexString += hexSet[Math.ceil(Math.random() * 15)];
+    }
+    return finalHexString;
+}
+
+function setSize() {
+    canvas.height = innerHeight;
+    canvas.width = innerWidth;
+}
+
+function Particle(x, y, particleTrailWidth, strokeColor, rotateSpeed) {
+    this.x = x;
+    this.y = y;
+    this.particleTrailWidth = particleTrailWidth;
+    this.strokeColor = strokeColor;
+    this.theta = Math.random() * Math.PI * 2;
+    this.rotateSpeed = rotateSpeed;
+    this.t = Math.random() * 150;
+
+    this.rotate = () => {
+    const ls = {
+        x: this.x,
+        y: this.y,
+    };
+    this.theta += this.rotateSpeed;
+    this.x = cursor.x + Math.cos(this.theta) * this.t;
+    this.y = cursor.y + Math.sin(this.theta) * this.t;
+    context.beginPath();
+    context.lineWidth = this.particleTrailWidth;
+    context.strokeStyle = this.strokeColor;
+    context.moveTo(ls.x, ls.y);
+    context.lineTo(this.x, this.y);
+    context.stroke();
+    };
+}
+
+function anim() {
+    requestAnimationFrame(anim);
+
+    // context.fillStyle = "rgb(0 0 0 / 5%)";
+    // context.fillRect(0, 0, canvas.width, canvas.height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    particlesArray.forEach((particle) => particle.rotate());
+}
+
+// form block
+const form = document.getElementById("contact-form");
+const successMessage = document.getElementById("success-message");
+const errorMessage = document.getElementById("error-message");
+
+if (form) {
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent page reload
+
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/api/v1/contact_form_submit", {
+        method: "POST",
+        body: formData,
+      });
+
+      let data;
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
+      if (response.ok) {
+        successMessage.innerHTML =
+          data.message || "Your submission was successful!";
+        successMessage.classList.add("visible");
+        errorMessage.classList.remove("visible");
+        form.reset();
+      } else {
+        errorMessage.innerHTML =
+          data.message || "An error occurred. Please try again.";
+        errorMessage.classList.add("visible");
+        successMessage.classList.remove("visible");
+      }
+    } catch (error) {
+      errorMessage.innerHTML = "A network error occurred. Please try again.";
+      errorMessage.classList.add("visible");
+      successMessage.classList.remove("visible");
+    }
+
+    // Hide success message after 5 seconds
+    setTimeout(() => {
+      successMessage.classList.remove("visible");
+    }, 5000);
+  });
+}
+
+// technology block
+const techItems = document.querySelectorAll(".tech-item[data-tech]");
+const techName = document.getElementById("tech-name");
+const techNameWrapper = document.getElementById("tech-name-wrapper");
+
+// Function to reset the text and color
+function resetTechName() {
+  if (techName && techNameWrapper) {
+    techName.textContent = "technology,";
+    techNameWrapper.style.color = "";
+  }
+}
+
+// Add event listeners to each technology item
+if (techItems && techName && techNameWrapper) {
+  techItems.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      const tech = item.getAttribute("data-tech");
+      const color = item.getAttribute("data-color");
+
+      techName.textContent = `${tech},`;
+      techNameWrapper.style.color = color;
+    });
+
+    item.addEventListener("mouseout", resetTechName);
+  });
+}
+</script>
 {% endblock %}

@@ -7,6 +7,7 @@ from routers import (
     favicon_ico,
     robots_txt,
     sitemap_xml,
+    animation_html,
 )
 from db.database import async_engine
 from db.models import Base
@@ -28,6 +29,10 @@ app.include_router(favicon_ico.router)
 app.include_router(robots_txt.router)
 app.include_router(sitemap_xml.router)
 app.include_router(contact_form_submit.router, prefix="/api/v1")
+
+# Temp routes for testing
+if PRODUCTION == "dev": 
+    app.include_router(animation_html.router)
 
 # Register the global 404 handler
 app.add_exception_handler(404, not_found_404_html.custom_404_handler)

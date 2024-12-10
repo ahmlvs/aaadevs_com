@@ -132,14 +132,24 @@
           cursor.y = e.clientY;
         });
         
-        addEventListener(
-          "touchmove",
-          (e) => {
-            e.preventDefault();
-            cursor.x = e.touches[0].clientX;
-            cursor.y = e.touches[0].clientY;
-          },
-          { passive: false },
+        // addEventListener(
+        //   "touchmove",
+        //   (e) => {
+        //     e.preventDefault();
+        //     cursor.x = e.touches[0].clientX;
+        //     cursor.y = e.touches[0].clientY;
+        //   },
+        //   { passive: false },
+        // );
+
+        canvas.addEventListener(
+            "touchmove",
+            (e) => {
+                const touch = e.touches[0];
+                cursor.x = touch.clientX;
+                cursor.y = touch.clientY;
+            },
+            { passive: true } // Make the listener passive to avoid blocking scrolling
         );
         
         addEventListener("resize", () => setSize());

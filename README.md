@@ -12,6 +12,8 @@ pip install -r requirements.txt
 
 `PRODUCTION` -- "prod" or "dev"
 
+`ALLOWED_ORIGINS` -- for dev for example "http://localhost,http://127.0.0.1"
+
 `PRODUCTION_DB_URL` -- Production Database URL string
 
 3. run the app

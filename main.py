@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from fastapi.middleware.cors import CORSMiddleware
 from routers import (
     index_html, 
     contact_form_submit, 
@@ -10,7 +11,7 @@ from routers import (
 )
 from db.database import async_engine
 from db.models import Base
-from config import PRODUCTION
+from config import PRODUCTION, ALLOWED_ORIGINS
 import uvicorn
 
 
@@ -18,6 +19,15 @@ if PRODUCTION == "prod":
     app = FastAPI(openapi_url=None)
 else:
     app = FastAPI(debug=True)
+
+# CORS configuration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=ALLOWED_ORIGINS.split(","),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Mount a static folder (if needed for CSS/JS files)
 app.mount("/static", StaticFiles(directory="static"), name="static")

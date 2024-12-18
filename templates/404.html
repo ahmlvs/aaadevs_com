@@ -265,7 +265,7 @@ VerletJS.prototype.spider = function(origin) {
         var dpr = 1;
 		canvas.width = width*dpr;
 		canvas.height = height*dpr;
-		canvas.getContext("2d").scale(dpr, dpr);
+		canvas.getContext("2d", { willReadFrequently: true }).scale(dpr, dpr);
 
 		// simulation
 		var sim = new VerletJS(width, height, canvas);

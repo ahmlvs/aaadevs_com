@@ -145,7 +145,7 @@
 <script>
 // animation block
 const canvas = document.getElementById("cw");
-const context = canvas.getContext("2d");
+const context = canvas.getContext("2d", { willReadFrequently: true });
 context.globalAlpha = 0.5;
 
 const cursor = {
@@ -320,7 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     techItems.forEach((item) => {
         const pixelCanvas = item.querySelector(".pixelCanvas");
-        const ctx = pixelCanvas.getContext("2d");
+        const ctx = pixelCanvas.getContext("2d", { willReadFrequently: true });
         const image = item.querySelector(".sourceImage");
         let isMouseOver = false;
         let animationFrameId;

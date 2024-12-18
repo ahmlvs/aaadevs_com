@@ -21,4 +21,4 @@ async def custom_404_handler(request: Request, exc: HTTPException):
         "image": "/static/images/capibara.webp",
         "robots": "noindex, nofollow",
     }
-    return templates.TemplateResponse("404.html", {"request": request, "data": data}, status_code=404)
+    return templates.TemplateResponse(request, "404.html", {"request": request, "data": data}, status_code=404)

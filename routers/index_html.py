@@ -21,4 +21,4 @@ async def index_html(request: Request):
         "image": "/static/images/logo.webp",
         "robots": "index, follow",
     }
-    return templates.TemplateResponse("index.html", {"request": request, "data": data})
+    return templates.TemplateResponse(request, "index.html", {"request": request, "data": data})

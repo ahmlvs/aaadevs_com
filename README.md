@@ -1,11 +1,22 @@
 # aaadevs_com
 
-1. install req
+1. how to create (env) and install requirements
 
 ```
 python3 -m venv env
 source env/bin/activate
+```
+
+install requirements
+
+```
 pip install -r requirements.txt
+```
+
+deactivate (env) if needed
+
+```
+deactivate
 ```
 
 2. add .env variables

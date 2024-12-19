@@ -61,3 +61,47 @@ python3 main.py
 ```bash
 uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
 ```
+
+## How to Test the Application
+
+### Running Tests
+
+To run tests, use the pytest framework. Ensure you have pytest installed:
+
+```bash
+pip install pytest
+```
+
+Run the tests with the following command:
+
+```bash
+pytest
+```
+
+### Measure Code Coverage
+
+To measure code coverage, use the pytest-cov plugin. Install it with:
+
+```bash
+pip install pytest-cov
+```
+
+Run tests with coverage reporting:
+
+```bash
+pytest --cov=.
+```
+
+### Generate a Coverage Report
+
+To generate a more detailed HTML coverage report:
+
+```bash
+pytest --cov=. --cov-report=html
+```
+
+The coverage report will be generated in the htmlcov directory. Open the report in your browser:
+
+```bash
+open htmlcov/index.html
+```

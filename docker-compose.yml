@@ -8,4 +8,4 @@ services:
     container_name: my-backend-container
     ports:
       - 80:8000
-    command: "python main.py"
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]

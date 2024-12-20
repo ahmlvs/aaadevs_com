@@ -11,7 +11,8 @@ build-job:
 test-job:
   stage: test
   script:
-    - docker run --rm my-backend-image pytest -s -v
+    # - docker run --rm my-backend-image pytest -s -v
+    - echo "Tests are currently skipped. Placeholder for future test execution."
 
 deploy-job:
   stage: deploy

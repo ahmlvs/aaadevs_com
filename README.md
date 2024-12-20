@@ -6,6 +6,7 @@
 - **Static Files**:
   - `robots.txt`: Provides instructions for web crawlers.
   - `sitemap.xml`: Helps search engines index the site's pages.
+  - `favicon.ico`: The small icon that appears in the browser tab or bookmark bar.
 - **Contact Form Handler**: Processes submissions from a contact form.
 
 This project serves as a foundation for further development, including additional pages, APIs, and backend logic.

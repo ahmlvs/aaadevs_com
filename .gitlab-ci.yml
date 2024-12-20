@@ -3,11 +3,6 @@ stages:
   - test
   - deploy
 
-variables:
-  PRODUCTION: $PRODUCTION
-  ALLOWED_ORIGINS: $ALLOWED_ORIGINS
-  PRODUCTION_DB_URL: $PRODUCTION_DB_URL
-
 build-job:
   stage: build
   script:
@@ -20,7 +15,7 @@ test-job:
     - echo "PRODUCTION = $PRODUCTION"
     - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
     - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"
-    - docker run --rm -e PRODUCTION="$PRODUCTION" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e PRODUCTION_DB_URL="$PRODUCTION_DB_URL" my-backend-image pytest -s -v
+    - docker run --rm my-backend-image pytest -s -v
 
 deploy-job:
   stage: deploy

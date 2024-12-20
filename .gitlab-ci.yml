@@ -16,10 +16,11 @@ build-job:
 test-job:
   stage: test
   script:
-    # - docker run --rm my-backend-image pytest -s -v
-    - echo ALLOWED_ORIGINS is set to: ${ALLOWED_ORIGINS}
-    - echo PRODUCTION is set to: ${PRODUCTION}
-    - echo PRODUCTION_DB_URL is set to: ${PRODUCTION_DB_URL}
+    # Placeholder for future test execution
+    # Original command: docker run --rm my-backend-image pytest -s -v
+    - echo "ALLOWED_ORIGINS is set to: ${ALLOWED_ORIGINS}"
+    - echo "PRODUCTION is set to: ${PRODUCTION}"
+    - echo "PRODUCTION_DB_URL is set to: ${PRODUCTION_DB_URL}"
 
 deploy-job:
   stage: deploy

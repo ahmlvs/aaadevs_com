@@ -19,6 +19,7 @@ test-job:
     # Placeholder for future test execution
     # Original command: docker run --rm my-backend-image pytest -s -v
     - echo "Testing"
+    - echo "PRODUCTION = $PRODUCTION"
 
 deploy-job:
   stage: deploy

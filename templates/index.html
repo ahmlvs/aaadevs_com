@@ -62,6 +62,7 @@
                 <canvas class="pixelCanvas" width="60" height="60"></canvas>
                 <img class="sourceImage" src="/static/icons/python-programming-language-icon.webp" alt="Python">
             </div>
+
             <div class="image-container tech-item" data-tech="FastApi" data-color="#009688">
                 <canvas class="pixelCanvas" width="60" height="60"></canvas>
                 <img class="sourceImage" src="/static/icons/fast-api-icon.webp" alt="FastApi">
@@ -324,6 +325,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const image = item.querySelector(".sourceImage");
         let isMouseOver = false;
         let animationFrameId;
+
+        // Add click event listener with preventDefault
+        item.addEventListener("click", (e) => {
+            e.preventDefault();
+        });
 
         // Load the image and draw it on the canvas
         image.onload = function () {

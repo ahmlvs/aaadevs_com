@@ -8,18 +8,11 @@ build-job:
   script:
     - docker build -t my-backend-image .
 
-backend-test-job:
-  stage: test
-  script:
-    - echo "Testing"
-    - echo "PRODUCTION = $PRODUCTION"
-    - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
-    - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"
-    - docker run --rm -e PRODUCTION="$PRODUCTION" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e PRODUCTION_DB_URL="$PRODUCTION_DB_URL" my-backend-image pytest -s -v
-
 nginx-test-job:
   stage: test
   script:
+    - echo "Installing file command"
+    - apk add --no-cache file
     - echo "Validating nginx.conf in CI"
     - ls -l ./nginx.conf
     - file ./nginx.conf
@@ -32,6 +25,15 @@ nginx-test-job:
     - docker run --rm \
       -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" \
       nginx:latest nginx -t -c /custom/nginx.conf
+
+backend-test-job:
+  stage: test
+  script:
+    - echo "Testing"
+    - echo "PRODUCTION = $PRODUCTION"
+    - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
+    - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"
+    - docker run --rm -e PRODUCTION="$PRODUCTION" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e PRODUCTION_DB_URL="$PRODUCTION_DB_URL" my-backend-image pytest -s -v
 
 deploy-job:
   stage: deploy

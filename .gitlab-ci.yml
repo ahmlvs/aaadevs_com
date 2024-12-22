@@ -20,10 +20,17 @@ backend-test-job:
 nginx-test-job:
   stage: test
   script:
+    # Verify that the configuration file exists
     - ls -l ./nginx.conf
     - cat ./nginx.conf
+
+    # Run a temporary Nginx container and validate the configuration
+    - docker run --rm \
+      -v $(pwd)/nginx.conf:/custom/nginx.conf:ro \
+      nginx:latest nginx -t -c /custom/nginx.conf
 
 deploy-job:
   stage: deploy
   script:
-    - docker compose up -d
+    - docker compose down --remove-orphans
+    - docker compose up -d --force-recreate

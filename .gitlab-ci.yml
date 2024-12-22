@@ -26,7 +26,4 @@ nginx-test-job:
 deploy-job:
   stage: deploy
   script:
-    - ls -l ./nginx.conf
-    - cat ./nginx.conf
-    - docker compose down
     - docker compose up -d

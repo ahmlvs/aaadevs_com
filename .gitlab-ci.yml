@@ -16,8 +16,10 @@ build-nginx-job:
 nginx-test-job:
   stage: test
   script:
-    - echo "Validating Nginx configuration"
-    - docker run --rm custom-nginx:latest nginx -t
+    - echo "Testing Nginx configuration in docker-compose network"
+    - docker-compose -f docker-compose.yml up -d backend
+    - docker-compose -f docker-compose.yml run --rm nginx nginx -t
+    - docker-compose -f docker-compose.yml down
 
 backend-test-job:
   stage: test

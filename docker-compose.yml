@@ -1,5 +1,8 @@
 version: "3.8"
-networks: my-network
+
+networks:
+  my-network:
+    driver: bridge
 
 services:
   backend:

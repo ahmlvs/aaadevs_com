@@ -8,20 +8,16 @@ build-job:
   script:
     - docker build -t my-backend-image .
 
+build-nginx-job:
+  stage: build
+  script:
+    - docker build -t custom-nginx:latest ./nginx
+
 nginx-test-job:
   stage: test
   script:
-    - echo "Installing file command"
-    - apk add --no-cache file
-    - echo "Validating nginx.conf in CI"
-    - ls -l ./nginx.conf
-    - file ./nginx.conf
-    - cat ./nginx.conf
-    - chmod 644 ./nginx.conf
-    - echo "Testing with default mount"
-    - docker run --rm -v "./nginx.conf:/etc/nginx/nginx.conf:ro" nginx:latest nginx -t
-    # - echo "Testing with custom mount"
-    # - docker run --rm -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" nginx:latest nginx -t -c /custom/nginx.conf
+    - echo "Validating Nginx configuration"
+    - docker run --rm custom-nginx:latest nginx -t
 
 backend-test-job:
   stage: test

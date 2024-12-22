@@ -7,16 +7,13 @@ services:
       - PRODUCTION_DB_URL=${PRODUCTION_DB_URL}
     container_name: my-backend-container
     ports:
-      - 8000
+      - "8000:8000"
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
   nginx:
-    image: nginx:latest
+    image: custom-nginx:latest
     container_name: my-nginx-container
     ports:
       - "80:80"
-    volumes:
-      - ./nginx.conf:/custom/nginx.conf:ro
-    command: ["nginx", "-g", "daemon off;", "-c", "/custom/nginx.conf"]
     depends_on:
       - backend

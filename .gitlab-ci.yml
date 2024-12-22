@@ -8,7 +8,7 @@ build-job:
   script:
     - docker build -t my-backend-image .
 
-test-job:
+backend-test-job:
   stage: test
   script:
     - echo "Testing"
@@ -16,6 +16,11 @@ test-job:
     - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
     - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"
     - docker run --rm -e PRODUCTION="$PRODUCTION" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e PRODUCTION_DB_URL="$PRODUCTION_DB_URL" my-backend-image pytest -s -v
+nginx-test-job:
+  stage: test
+  script:
+    - ls -l ./nginx.conf
+    - cat ./nginx.conf
 
 deploy-job:
   stage: deploy

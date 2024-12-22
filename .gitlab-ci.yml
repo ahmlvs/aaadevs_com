@@ -25,9 +25,7 @@ nginx-test-job:
     - cat ./nginx.conf
 
     # Run a temporary Nginx container and validate the configuration
-    - docker run --rm \
-      -v $(pwd)/nginx.conf:/custom/nginx.conf:ro \
-      nginx:latest nginx -t -c /custom/nginx.conf
+    - docker run --rm -v $(pwd)/nginx.conf:/custom/nginx.conf:ro nginx:latest nginx -t -c /custom/nginx.conf
 
 deploy-job:
   stage: deploy

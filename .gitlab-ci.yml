@@ -26,5 +26,4 @@ nginx-test-job:
 deploy-job:
   stage: deploy
   script:
-    - docker compose down --remove-orphans
-    - docker compose up -d --force-recreate
+    - docker compose up -d

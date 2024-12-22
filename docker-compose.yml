@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   backend:
     image: my-backend-image:latest
@@ -12,17 +10,13 @@ services:
       - 8000
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
-  proxy:
+  nginx:
     image: nginx:latest
     container_name: my-nginx-container
     ports:
       - "80:80"
-    configs:
-      - source: nginx-conf
-        target: /etc/nginx/nginx.conf
+    volumes:
+      - ./nginx.conf:/custom/nginx.conf:ro
+    command: ["nginx", "-g", "daemon off;", "-c", "/custom/nginx.conf"]
     depends_on:
       - backend
-
-configs:
-  nginx-conf:
-    file: ./nginx.conf

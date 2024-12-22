@@ -18,13 +18,9 @@ nginx-test-job:
     - file ./nginx.conf
     - cat ./nginx.conf
     - echo "Testing with default mount"
-    - docker run --rm \
-      -v "$(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro" \
-      nginx:latest nginx -t
+    - docker run --rm -v "$(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro" nginx:latest nginx -t
     - echo "Testing with custom mount"
-    - docker run --rm \
-      -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" \
-      nginx:latest nginx -t -c /custom/nginx.conf
+    - docker run --rm -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" nginx:latest nginx -t -c /custom/nginx.conf
 
 backend-test-job:
   stage: test

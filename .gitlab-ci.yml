@@ -20,12 +20,18 @@ backend-test-job:
 nginx-test-job:
   stage: test
   script:
-    # Verify that the configuration file exists
+    - echo "Validating nginx.conf in CI"
     - ls -l ./nginx.conf
+    - file ./nginx.conf
     - cat ./nginx.conf
-
-    # Run a temporary Nginx container and validate the configuration
-    - docker run --rm -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" nginx:latest nginx -t -c /custom/nginx.conf
+    - echo "Testing with default mount"
+    - docker run --rm \
+      -v "$(pwd)/nginx.conf:/etc/nginx/nginx.conf:ro" \
+      nginx:latest nginx -t
+    - echo "Testing with custom mount"
+    - docker run --rm \
+      -v "$(pwd)/nginx.conf:/custom/nginx.conf:ro" \
+      nginx:latest nginx -t -c /custom/nginx.conf
 
 deploy-job:
   stage: deploy

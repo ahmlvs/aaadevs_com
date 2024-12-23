@@ -174,3 +174,46 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 git --version
 docker --version
 ```
+
+## Installing an SSL Certificate on Server
+
+```bash
+sudo apt update
+sudo apt install certbot python3-certbot-nginx -y
+```
+
+Stop the Nginx container temporarily if it’s running:
+
+```bash
+docker stop my-nginx-container
+```
+
+Obtain the SSL certificate:
+
+```bash
+sudo certbot certonly --standalone -d your_domain.com
+```
+
+Restart the Nginx container if needed:
+
+```bash
+docker start my-nginx-container
+```
+
+## Setting Up Certificate Renewal
+
+```bash
+sudo crontab -e
+```
+
+Add the following line to renew certificates and restart Nginx automatically:
+
+```txt
+0 3 * * * certbot renew --quiet && docker stop my-nginx-container && docker start my-nginx-container
+```
+
+To test renewal manually:
+
+```bash
+sudo certbot renew --dry-run
+```

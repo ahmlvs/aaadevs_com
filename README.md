@@ -112,6 +112,8 @@ The coverage report will be generated in the htmlcov directory. Open the report 
 open htmlcov/index.html
 ```
 
+---
+
 # CI/CD
 
 The process of setting up CI/CD using GitLab CI, GitLab Runners, Docker Compose, and Nginx.

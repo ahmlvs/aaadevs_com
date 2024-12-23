@@ -163,7 +163,7 @@ cython_debug/
 
 # SQLite database files
 *.db
-db/*.db
+*db/*.db
 
 # OS-specific files
 .DS_Store

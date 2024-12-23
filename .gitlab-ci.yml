@@ -6,7 +6,7 @@ stages:
 build-job:
   stage: build
   script:
-    - docker build -t my-backend-image .
+    - docker build -t my-backend-image ./backend
 
 build-nginx-job:
   stage: build
@@ -24,7 +24,7 @@ nginx-test-job:
 backend-test-job:
   stage: test
   script:
-    - echo "Testing"
+    - echo "Testing backend"
     - echo "PRODUCTION = $PRODUCTION"
     - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
     - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"

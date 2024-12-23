@@ -1,6 +1,6 @@
 # aaadevs_com
 
-[**aaadevs_com**](https://aaadevs.com) is a website project built using **FastAPI**, combining backend and frontend using Jinja2Templates for dynamic HTML rendering. Currently, the project includes the following components:
+<a href="https://aaadevs.com" target="_blank" ><strong>aaadevs_com</strong></a> is a website project built using **FastAPI**, combining backend and frontend using Jinja2Templates for dynamic HTML rendering. Currently, the project includes the following components:
 
 - **Home Page**: The main landing page of the website.
 - **Static Files**:
@@ -14,6 +14,10 @@ This project serves as a foundation for further development, including additiona
 ---
 
 # Backend FastApi
+
+```bash
+cd backend
+```
 
 ## How to Create and Activate a Virtual Environment
 

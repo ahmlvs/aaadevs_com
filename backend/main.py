@@ -11,11 +11,11 @@ from routers import (
 )
 from db.database import async_engine
 from db.models import Base
-from config import PRODUCTION, ALLOWED_ORIGINS
+from config import PROFILES, ALLOWED_ORIGINS
 import uvicorn
 
 
-if PRODUCTION == "prod":
+if PROFILES == "prod":
     app = FastAPI(openapi_url=None)
 else:
     app = FastAPI(debug=True)

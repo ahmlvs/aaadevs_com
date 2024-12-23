@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from fastapi import Request
 from fastapi.exceptions import HTTPException
 from fastapi.templating import Jinja2Templates
-from config import PRODUCTION
+from config import PROFILES
 
 router = APIRouter()
 
@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="templates")
 # Define a custom 404 error handler
 async def custom_404_handler(request: Request, exc: HTTPException):
     data = {
-        "PRODUCTION": PRODUCTION,
+        "PROFILES": PROFILES,
         "page": "404",
         "title": "404 - Page Not Found | AAA Devs",
         "description": "The page you are looking for does not exist. Please check the URL and try again.",

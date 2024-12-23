@@ -2,10 +2,10 @@ import os
 from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config import PRODUCTION, PRODUCTION_DB_URL
+from config import PROFILES, DB_URL
 
 # Determine the database URL based on the environment
-if PRODUCTION == "prod":
+if PROFILES == "prod":
 
     # PostgreSQL Production Database URL
     # "postgresql+asyncpg://user:password@localhost/prod_db"
@@ -13,7 +13,7 @@ if PRODUCTION == "prod":
     # MySQL Production Database URL
     # "mysql+aiomysql://user:password@localhost/prod_db"
 
-    DATABASE_URL = PRODUCTION_DB_URL
+    DATABASE_URL = DB_URL
 
     ssl_args = {
         'ssl': True,

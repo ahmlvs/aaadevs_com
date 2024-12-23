@@ -1,6 +1,6 @@
 # aaadevs_com
 
-**aaadevs_com** is a website project built using **FastAPI**. The goal is to develop a scalable, high-performance web application with essential pages and features. Currently, the project includes the following components:
+[**aaadevs_com**](https://aaadevs.com) is a website project built using **FastAPI**, combining backend and frontend using Jinja2Templates for dynamic HTML rendering. Currently, the project includes the following components:
 
 - **Home Page**: The main landing page of the website.
 - **Static Files**:
@@ -12,6 +12,8 @@
 This project serves as a foundation for further development, including additional pages, APIs, and backend logic.
 
 ---
+
+# Backend FastApi
 
 ## How to Create and Activate a Virtual Environment
 
@@ -44,9 +46,9 @@ deactivate
 Create a .env file in the project root with the following variables:
 
 ```env
-PRODUCTION=prod                                     # Use "prod" for production, "dev" for development
+PROFILES=dev                                        # Use "prod" for production, "dev" for development
 ALLOWED_ORIGINS=http://localhost,http://127.0.0.1   # For development
-PRODUCTION_DB_URL=your_production_database_url      # Production Database URL string
+DB_URL=your_database_url                            # Database URL string. For "dev" can be ""
 ```
 
 ## Run the Application
@@ -54,13 +56,7 @@ PRODUCTION_DB_URL=your_production_database_url      # Production Database URL st
 ### Run Locally
 
 ```bash
-python3 main.py
-```
-
-### Run in Production with Uvicorn
-
-```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
+python main.py
 ```
 
 ## How to Test the Application

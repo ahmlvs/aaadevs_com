@@ -40,7 +40,7 @@
     <meta name="robots" content="{{ data.robots }}">
 
     <!-- Include Analytics Only in Production -->
-    {% if data.PRODUCTION == "prod" %}
+    {% if data.PROFILES == "prod" %}
         {% include "google_analytics.html" %}
         {% include "yandex_metrika.html" %}
     {% endif %}

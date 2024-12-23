@@ -200,7 +200,7 @@ Restart the Nginx container if needed:
 docker start my-nginx-container
 ```
 
-## Setting Up Certificate Renewal
+### Setting Up Certificate Renewal
 
 ```bash
 sudo crontab -e
@@ -217,3 +217,66 @@ To test renewal manually:
 ```bash
 sudo certbot renew --dry-run
 ```
+
+## Setting Up GitLab CI/CD
+
+### Configure GitLab CI/CD:
+
+Go to your GitLab Project Settings > CI/CD > Variables.
+Add environment variables required for the application.
+
+### Set Up a GitLab Runner:
+
+In GitLab, go to Settings > CI/CD > Runners.
+Uncheck the Enable instance runners for this project option to ensure the runner is project-specific.
+
+Create a New Project-Specific Runner:
+We use a Docker container to run the GitLab Runner instead of running it as a standalone service.
+
+### Install GitLab Runner on the Server
+
+Add your user to the Docker group if needed:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Start the GitLab Runner:
+
+```bash
+docker run -d --name gitlab-runner --restart always \
+  -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  gitlab/gitlab-runner:alpine
+```
+
+Register the Runner:
+
+```bash
+docker run --rm -it \
+    -v /srv/gitlab-runner/config:/etc/gitlab-runner \
+    gitlab/gitlab-runner:alpine register
+```
+
+During registration, you’ll need:
+
+- Token: Available in the GitLab project’s CI/CD > Runners settings.
+- Executor: Choose `docker`.
+- Default Docker Image: Use `docker:dind`.
+
+Update config.toml for the Runner:
+
+```bash
+nano /srv/gitlab-runner/config/config.toml
+```
+
+Update the volumes section:
+
+```bash
+volumes = ["/var/run/docker.sock:/var/run/docker.sock", "/cache"]
+```
+
+### Run the CI/CD Pipeline:
+
+Push your code to GitLab.
+The `.gitlab-ci.yml` pipeline uses the `docker-compose.yml` file to build, test, and deploy the backend and Nginx services.

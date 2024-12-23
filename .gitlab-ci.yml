@@ -25,10 +25,10 @@ backend-test-job:
   stage: test
   script:
     - echo "Testing backend"
-    - echo "PRODUCTION = $PRODUCTION"
+    - echo "PROFILES = $PROFILES"
     - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
-    - echo "PRODUCTION_DB_URL = $PRODUCTION_DB_URL"
-    - docker run --rm -e PRODUCTION="$PRODUCTION" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e PRODUCTION_DB_URL="$PRODUCTION_DB_URL" my-backend-image pytest -s -v
+    - echo "DB_URL = $DB_URL"
+    - docker run --rm -e PROFILES="$PROFILES" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e DB_URL="$DB_URL" my-backend-image pytest -s -v
 
 deploy-job:
   stage: deploy

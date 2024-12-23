@@ -2,9 +2,9 @@ services:
   backend:
     image: my-backend-image:latest
     environment:
-      - PRODUCTION=${PRODUCTION}
+      - PROFILES=${PROFILES}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
-      - PRODUCTION_DB_URL=${PRODUCTION_DB_URL}
+      - DB_URL=${DB_URL}
     container_name: my-backend-container
     ports:
       - "8000:8000"

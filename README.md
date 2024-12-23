@@ -11,6 +11,11 @@
 
 This project serves as a foundation for further development, including additional pages, APIs, and backend logic.
 
+## Table of Contents
+
+- [Backend FastApi](#backend-fastapi)
+- [CI/CD](#cicd)
+
 ---
 
 # Backend FastApi

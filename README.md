@@ -1,6 +1,16 @@
 # aaadevs_com
 
-<a href="https://aaadevs.com" target="_blank"><strong>aaadevs.com</strong></a> is a website project built using **FastAPI**, combining backend and frontend using Jinja2Templates for dynamic HTML rendering. Currently, the project includes the following components:
+<a href="https://aaadevs.com" target="_blank"><strong>aaadevs.com</strong></a> is a website project built using **FastAPI**, combining backend and frontend using Jinja2Templates for dynamic HTML rendering.
+
+This project serves as a foundation for further development and is designed to help developers learn and experiment with:
+
+- Using **FastAPI** to build web applications.
+- Rendering HTML pages server-side with **Jinja2Templates**.
+- Setting up **CI/CD** pipelines with **Docker** and **GitLab**.
+
+Feel free to use this project as an example or starting point for your own web applications, contribute to its development, or adapt it to fit your needs. Contributions are welcome!
+
+Currently, the project includes the following components:
 
 - **Home Page**: The main landing page of the website.
 - **Static Files**:
@@ -8,8 +18,6 @@
   - `sitemap.xml`: Helps search engines index the site's pages.
   - `favicon.ico`: The small icon that appears in the browser tab or bookmark bar.
 - **Contact Form Handler**: Processes submissions from a contact form.
-
-This project serves as a foundation for further development, including additional pages, APIs, and backend logic.
 
 ### Table of Contents
 
@@ -124,7 +132,7 @@ The process of setting up CI/CD using GitLab CI, GitLab Runners, Docker Compose,
 
 ### Set Up the Server:
 
-Create a server (e.g., on AWS, DigitalOcean, or any cloud provider).
+Create a server (e.g., on AWS, DigitalOcean, Azure, or any cloud provider).
 Obtain the server’s IP address: xxx.xxx.xxx.xxx
 
 ### Purchase a Domain Name:

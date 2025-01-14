@@ -42,6 +42,7 @@ app.include_router(contact_form_submit.router, prefix="/api/v1")
 # Register the global 404 handler
 app.add_exception_handler(404, not_found_404_html.custom_404_handler)
 
+
 # Define startup function
 async def startup_event():
     async with async_engine.begin() as conn:

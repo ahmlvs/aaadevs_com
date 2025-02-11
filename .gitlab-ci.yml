@@ -35,3 +35,4 @@ deploy-job:
   script:
     - docker compose down --remove-orphans
     - docker compose up -d --force-recreate
+    - docker update --restart=always my-backend-container my-nginx-container

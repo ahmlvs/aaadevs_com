@@ -122,6 +122,56 @@ open htmlcov/index.html
 
 ---
 
+# TGBot Aiogram3
+
+```bash
+cd tgbot
+```
+
+## How to Create and Activate a Virtual Environment
+
+### Create the Virtual Environment
+
+```bash
+python3 -m venv env
+```
+
+### Activate the Virtual Environment
+
+```bash
+source env/bin/activate
+```
+
+### Install Requirements
+
+```bash
+pip install -r requirements.txt
+```
+
+### Deactivate the Virtual Environment (if needed)
+
+```bash
+deactivate
+```
+
+## Add Environment Variables (.env)
+
+Create a .env file in the project root with the following variables:
+
+```env
+BOT_TOKEN="test:12345"                              # Use token from BotFather
+```
+
+## Run the Application
+
+### Run Locally
+
+```bash
+python main.py
+```
+
+---
+
 # CI/CD
 
 The process of setting up CI/CD using GitLab CI, GitLab Runners, Docker Compose, and Nginx.

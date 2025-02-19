@@ -22,3 +22,11 @@ services:
     depends_on:
       - backend
     restart: always
+
+  tgbot:
+    image: my-tgbot-image:latest
+    container_name: my-tgbot-container
+    environment:
+      - BOT_TOKEN=${BOT_TOKEN}
+    restart: always
+    command: ["python", "main.py"]

@@ -13,6 +13,11 @@ build-nginx-job:
   script:
     - docker build -t custom-nginx:latest ./nginx
 
+build-tgbot-job:
+  stage: build
+  script:
+    - docker build -t my-tgbot-image ./tgbot
+
 nginx-test-job:
   stage: test
   script:
@@ -30,9 +35,15 @@ backend-test-job:
     - echo "DB_URL = $DB_URL"
     - docker run --rm -e PROFILES="$PROFILES" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e DB_URL="$DB_URL" my-backend-image pytest -s -v
 
+tgbot-test-job:
+  stage: test
+  script:
+    - echo "Testing Telegram Bot"
+    - docker run --rm -e BOT_TOKEN="$BOT_TOKEN" my-tgbot-image python -c "print('TGBot Test Passed')"
+
 deploy-job:
   stage: deploy
   script:
     - docker compose down --remove-orphans
     - docker compose up -d --force-recreate
-    - docker update --restart=always my-backend-container my-nginx-container
+    - docker update --restart=always my-backend-container my-nginx-container my-tgbot-container

@@ -22,6 +22,7 @@ Currently, the project includes the following components:
 ### Table of Contents
 
 - [Backend FastApi](#backend-fastapi)
+- [TGBot Aiogram3](#tgbot-aiogram3)
 - [CI/CD](#cicd)
 
 ---

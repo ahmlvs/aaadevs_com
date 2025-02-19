@@ -6,6 +6,7 @@ from sqlalchemy.future import select
 from db.models import ContactFormModel
 from db.database import get_db_session
 from datetime import datetime, timedelta
+from notifications.notify_tg_admins import send_telegram_notification
 
 router = APIRouter()
 
@@ -38,6 +39,17 @@ async def contact_form_submit(
     contact_entry = ContactFormModel(name=form_data.name, email=form_data.email)
     db.add(contact_entry)
     await db.commit()
+    await db.refresh(contact_entry)  # Ensure the object is fully loaded
+
+    # Extract contact entry details
+    contact_data = {
+        "name": contact_entry.name,
+        "email": contact_entry.email,
+        "created_at": contact_entry.created_at.strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+    # Send notification to admins
+    await send_telegram_notification(contact_data)
 
     # Process the validated form data
     return JSONResponse(

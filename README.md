@@ -67,6 +67,8 @@ Create a .env file in the project root with the following variables:
 PROFILES=dev                                        # Use "prod" for production, "dev" for development
 ALLOWED_ORIGINS=http://localhost,http://127.0.0.1   # For development
 DB_URL=your_database_url                            # Database URL string. For "dev" can be ""
+BOT_TOKEN=test:12345                                # Use token from BotFather
+ADMINS_LIST=1111111111,1111111112                   # Use user chat id
 ```
 
 ## Run the Application
@@ -160,7 +162,7 @@ deactivate
 Create a .env file in the project root with the following variables:
 
 ```env
-BOT_TOKEN="test:12345"                              # Use token from BotFather
+BOT_TOKEN=test:12345                                # Use token from BotFather
 ```
 
 ## Run the Application

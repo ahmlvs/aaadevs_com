@@ -5,6 +5,8 @@ services:
       - PROFILES=${PROFILES}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
       - DB_URL=${DB_URL}
+      - BOT_TOKEN=${BOT_TOKEN}
+      - ADMINS_LIST=${ADMINS_LIST}
     container_name: my-backend-container
     ports:
       - "8000:8000"

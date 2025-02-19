@@ -33,7 +33,7 @@ backend-test-job:
     - echo "PROFILES = $PROFILES"
     - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
     - echo "DB_URL = $DB_URL"
-    - docker run --rm -e PROFILES="$PROFILES" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e DB_URL="$DB_URL" my-backend-image pytest -s -v
+    - docker run --rm -e PROFILES="$PROFILES" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e DB_URL="$DB_URL" -e BOT_TOKEN="$BOT_TOKEN" -e ADMINS_LIST="$ADMINS_LIST" my-backend-image pytest -s -v
 
 tgbot-test-job:
   stage: test

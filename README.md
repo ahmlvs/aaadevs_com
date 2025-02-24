@@ -7,6 +7,7 @@ This project serves as a foundation for further development and is designed to h
 - Using **FastAPI** to build web applications.
 - Rendering HTML pages server-side with **Jinja2Templates**.
 - Setting up **CI/CD** pipelines with **Docker** and **GitLab**.
+- Integrating a Telegram Bot using **aiogram3**. 
 
 Feel free to use this project as an example or starting point for your own web applications, contribute to its development, or adapt it to fit your needs. Contributions are welcome!
 
@@ -17,7 +18,8 @@ Currently, the project includes the following components:
   - `robots.txt`: Provides instructions for web crawlers.
   - `sitemap.xml`: Helps search engines index the site's pages.
   - `favicon.ico`: The small icon that appears in the browser tab or bookmark bar.
-- **Contact Form Handler**: Processes submissions from a contact form.
+- **Contact Form Handler**: Processes submissions from a contact form, with logic to handle and send notifications to Telegram Bot.
+- **Telegram Bot**: To get notifications from a contact form.
 
 ### Table of Contents
 

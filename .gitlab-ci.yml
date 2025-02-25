@@ -3,7 +3,7 @@ stages:
   - test
   - deploy
 
-build-job:
+build-backend-job:
   stage: build
   script:
     - docker build -t my-backend-image ./backend

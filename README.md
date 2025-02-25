@@ -7,7 +7,7 @@ This project serves as a foundation for further development and is designed to h
 - Using **FastAPI** to build web applications.
 - Rendering HTML pages server-side with **Jinja2Templates**.
 - Setting up **CI/CD** pipelines with **Docker** and **GitLab**.
-- Integrating a Telegram Bot using **aiogram3**. 
+- Integrating a Telegram Bot using **aiogram3**. Try bot <a href="https://t.me/aaadevs_bot" target="_blank"><strong>t.me/aaadevs_bot</strong></a>
 
 Feel free to use this project as an example or starting point for your own web applications, contribute to its development, or adapt it to fit your needs. Contributions are welcome!
 

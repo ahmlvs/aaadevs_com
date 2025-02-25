@@ -11,9 +11,9 @@ async def command_help_handler(message: Message) -> None:
     """
 
     help_text = (
-        "🤖 *Bot Commands Guide:*\n"
-        "/start -- Start the bot\n"
-        "/help -- Show this help message\n"
+        "🤖 *Bot Commands Guide:*\n\n"
+        "/start -- Start the bot and get info\n"
+        "/help -- Show this help message\n\n"
         "💬 Just send me a text message, and I'll echo it back!"
     )
     await message.answer(help_text, parse_mode="Markdown")

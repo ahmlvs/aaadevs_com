@@ -20,8 +20,13 @@ async def command_start_handler(message: Message) -> None:
 
     # Send a welcome message
     if username:
-        text = f"Hello, @{username}! 👋"
+        text = f"Hello, @{username}! 👋\n\n"
     else:
-        text = f"Hello, {first_name}! 👋"
+        text = f"Hello, {first_name}! 👋\n\n"
+    
+    text += "Welcome to aaadevs_com bot.\n\n"
+    text += "aaadevs_com: open-source project built with FastAPI, showcasing server-side HTML rendering with Jinja2Templates, and CI/CD deployment using Docker and GitLab.\n\n"
+    text += "Source code: [GitHub](https://github.com/ahmlvs/aaadevs_com)\n"
+    text += "Website: [aaadevs.com](https://aaadevs.com)\n"
     
     await message.answer(text)

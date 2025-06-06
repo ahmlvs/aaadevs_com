@@ -1,20 +1,22 @@
 services:
   backend:
-    image: my-backend-image:latest
+    build:
+      context: ./backend
+    container_name: my-backend-container
     environment:
       - PROFILES=${PROFILES}
       - ALLOWED_ORIGINS=${ALLOWED_ORIGINS}
       - DB_URL=${DB_URL}
       - BOT_TOKEN=${BOT_TOKEN}
       - ADMINS_LIST=${ADMINS_LIST}
-    container_name: my-backend-container
     ports:
       - "8000:8000"
     restart: always
     command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
   nginx:
-    image: custom-nginx:latest
+    build:
+      context: ./nginx
     container_name: my-nginx-container
     ports:
       - "80:80"
@@ -26,7 +28,8 @@ services:
     restart: always
 
   tgbot:
-    image: my-tgbot-image:latest
+    build:
+      context: ./tgbot
     container_name: my-tgbot-container
     environment:
       - BOT_TOKEN=${BOT_TOKEN}

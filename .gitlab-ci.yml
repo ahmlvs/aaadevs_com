@@ -4,33 +4,25 @@ stages:
 
 build-and-test-job:
   stage: build_and_test
-  image: docker:latest
-  services:
-    - docker:dind
-  variables:
-    DOCKER_HOST: tcp://docker:2375/
-    DOCKER_TLS_CERTDIR: ""
   script:
-    - echo "🔧 Building all images with Docker Compose"
-    - docker compose -f docker-compose.yml build
+    - echo "Building all images with Docker Compose"
+    - docker-compose -f docker-compose.yml build
 
-    - echo "✅ Testing backend"
-    - docker compose run --rm backend pytest -s -v
+    - echo "Testing backend"
+    - docker-compose run --rm backend pytest -s -v
 
-    - echo "✅ Testing Nginx configuration"
-    - docker compose up -d backend
-    - docker compose run --rm nginx nginx -t
-    - docker compose down
+    - echo "Testing Nginx configuration"
+    - docker-compose up -d backend
+    - docker-compose run --rm nginx nginx -t
+    - docker-compose down
 
-    - echo "✅ Testing Telegram bot"
-    - docker compose run --rm tgbot python -c "print('TGBot Test Passed')"
+    - echo "Testing Telegram bot"
+    - docker-compose run --rm tgbot python -c "print('TGBot Test Passed')"
 
 deploy-job:
   stage: deploy
-  tags:
-    - live-deploy
   script:
-    - echo "🚀 Deploying updated containers"
-    - docker compose down --remove-orphans
-    - docker compose up -d --force-recreate
+    - echo "Deploying updated containers"
+    - docker-compose down --remove-orphans
+    - docker-compose up -d --force-recreate
     - docker update --restart=always my-backend-container my-nginx-container my-tgbot-container

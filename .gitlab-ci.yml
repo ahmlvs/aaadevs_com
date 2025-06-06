@@ -1,28 +1,49 @@
 stages:
-  - build_and_test
+  - build
+  - test
   - deploy
 
-build-and-test-job:
-  stage: build_and_test
+build-backend-job:
+  stage: build
   script:
-    - echo "Building all images with Docker Compose"
-    - docker-compose -f docker-compose.yml build
+    - docker build -t my-backend-image ./backend
 
+build-nginx-job:
+  stage: build
+  script:
+    - docker build -t custom-nginx:latest ./nginx
+
+build-tgbot-job:
+  stage: build
+  script:
+    - docker build -t my-tgbot-image ./tgbot
+
+nginx-test-job:
+  stage: test
+  script:
+    - echo "Testing Nginx configuration in docker-compose network"
+    - docker-compose -f docker-compose.yml up -d backend
+    - docker-compose -f docker-compose.yml run --rm nginx nginx -t
+    - docker-compose -f docker-compose.yml down
+
+backend-test-job:
+  stage: test
+  script:
     - echo "Testing backend"
-    - docker-compose run --rm backend pytest -s -v
+    - echo "PROFILES = $PROFILES"
+    - echo "ALLOWED_ORIGINS = $ALLOWED_ORIGINS"
+    - echo "DB_URL = $DB_URL"
+    - docker run --rm -e PROFILES="$PROFILES" -e ALLOWED_ORIGINS="$ALLOWED_ORIGINS" -e DB_URL="$DB_URL" -e BOT_TOKEN="$BOT_TOKEN" -e ADMINS_LIST="$ADMINS_LIST" my-backend-image pytest -s -v
 
-    - echo "Testing Nginx configuration"
-    - docker-compose up -d backend
-    - docker-compose run --rm nginx nginx -t
-    - docker-compose down
-
-    - echo "Testing Telegram bot"
-    - docker-compose run --rm tgbot python -c "print('TGBot Test Passed')"
+tgbot-test-job:
+  stage: test
+  script:
+    - echo "Testing Telegram Bot"
+    - docker run --rm -e BOT_TOKEN="$BOT_TOKEN" my-tgbot-image python -c "print('TGBot Test Passed')"
 
 deploy-job:
   stage: deploy
   script:
-    - echo "Deploying updated containers"
-    - docker-compose down --remove-orphans
-    - docker-compose up -d --force-recreate
+    - docker compose down --remove-orphans
+    - docker compose up -d --force-recreate
     - docker update --restart=always my-backend-container my-nginx-container my-tgbot-container

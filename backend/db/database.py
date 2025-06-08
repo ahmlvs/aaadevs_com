@@ -3,6 +3,7 @@ from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import declarative_base
 from sqlalchemy.orm import sessionmaker
 from config import PROFILES, DB_URL
+import ssl
 
 # Determine the database URL based on the environment
 if PROFILES == "prod":
@@ -16,7 +17,8 @@ if PROFILES == "prod":
     DATABASE_URL = DB_URL
 
     ssl_args = {
-        'ssl': True,
+        # 'ssl': True,
+        "ssl": ssl._create_unverified_context()
     }
 
     # Create an asynchronous engine

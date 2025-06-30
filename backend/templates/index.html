@@ -45,7 +45,10 @@
             placeholder="Your name goes here."
             autocomplete="name"
             required
-            class="w-full rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+            class="w-full rounded-md border border-gray-300 px-4 py-2
+                    placeholder-gray-400 text-base   <!-- 16 px on mobile -->
+                    sm:text-sm                       <!-- optional: 14 px ≥640 px -->
+                    focus:ring-indigo-500 focus:border-indigo-500"
           />
         </label>
 
@@ -58,7 +61,10 @@
             placeholder="Your email goes here."
             autocomplete="email"
             required
-            class="w-full rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+            class="w-full rounded-md border border-gray-300 px-4 py-2
+                    placeholder-gray-400 text-base
+                    sm:text-sm
+                    focus:ring-indigo-500 focus:border-indigo-500"
           />
         </label>
       </div>

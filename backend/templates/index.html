@@ -1,151 +1,80 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <!-- Main Block -->
-    <div class="main-block">
-        <div class="main-content">
-            <h1>Your complete platform for the software development</h1>
-            <p>AAA Devs develops Telegram and Discord apps to build, scale and grow your business.</p>
-            
-            <a href="#form-block" class="start-button-link">
-                <button class="start-button">>_ Start Development</button>
-            </a>
-        </div>
+<section class="max-w-7xl mx-auto px-4 py-16">
 
-        <!-- Animation Block -->
-        <canvas id="cw"></canvas>
+  <!-- Hero / Main Block -->
+  <div class="flex flex-col items-center text-center space-y-6">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900">
+      Your complete platform for&nbsp;software&nbsp;development
+    </h1>
+    <p class="text-lg text-gray-600 max-w-2xl">
+      AAA Devs builds Telegram and Discord apps to help you scale, engage, and grow your business.
+    </p>
 
-        <div class="logo-animation-block">
-            <div class="logo-animation">
-                <span class="animated-text">&gt;<span class="blink">_</span></span>
-            </div>
-        </div>
-    </div>
+    <a href="#form-block" class="inline-flex">
+      <button
+        class="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-mono text-sm rounded-md shadow hover:bg-indigo-700 transition">
+        <span>&gt;_</span>
+        <span>Start&nbsp;Development</span>
+      </button>
+    </a>
+  </div>
 
-    <!-- Form Block -->
-    <div id="form-block" class="form-block">
-        <div class="form-block-text">
-            <p>Seamless access to nearly <span class="selected-text">1 billion active users</span> with Telegram apps and superfans on Discord, <span class="selected-text">5x client engagement</span> boost.</p>
-        </div>
-        <div class="form-block-form">
-            <form id="contact-form">
-                <h2>Elevate your business with Telegram and Discord apps</h2>
+  <!-- Form Block -->
+  <div id="form-block" class="mt-24">
+    <p class="text-center mx-auto mb-10 max-w-3xl text-xl text-gray-700">
+      Seamless access to nearly
+      <span class="font-bold text-indigo-600">1 billion active users</span> on Telegram and superfans on Discord,
+      delivering a
+      <span class="font-bold text-indigo-600">5× client engagement</span> boost.
+    </p>
 
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" placeholder="Your name goes here." autocomplete="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" placeholder="Your email goes here." autocomplete="email" required>
-                
-                <button type="submit">>_ Submit</button>
+    <form id="contact-form" class="mx-auto max-w-xl space-y-6 bg-white p-8 rounded-lg shadow">
+      <h2 class="text-2xl font-semibold text-gray-900 text-center">
+        Elevate your business with Telegram and Discord apps
+      </h2>
 
-                <div id="success-message" class="form-message success-message"></div>
-                <div id="error-message" class="form-message error-message"></div>
-            </form>
-        </div>
-    </div>
+      <div class="space-y-4">
+        <label class="block">
+          <span class="block mb-1 text-sm font-medium text-gray-700">Name</span>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Your name goes here."
+            autocomplete="name"
+            required
+            class="w-full rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </label>
 
-    <!-- Technology Block -->
-    <div id="technology-block" class="technology-block">
-        <div class="tech-grid">
-            <!-- Text Block -->
-            <div class="tech-item text-block" data-tech="technology">
-            <div id="dynamic-text">
-                <div id="dynamic-text-start">
-                Your <span id="tech-name-wrapper"><span id="tech-name">technology,</span></span>
-                </div>
-                <div id="dynamic-text-end">your way.</div>
-            </div>
-            </div>
-        
-            <!-- Technology Icons with Links -->
-            <div class="image-container tech-item" data-tech="Python" data-color="#3776AB">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/python-programming-language-icon.webp" alt="Python">
-            </div>
+        <label class="block">
+          <span class="block mb-1 text-sm font-medium text-gray-700">Email</span>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Your email goes here."
+            autocomplete="email"
+            required
+            class="w-full rounded-md border border-gray-300 px-4 py-2 placeholder-gray-400 text-sm focus:ring-indigo-500 focus:border-indigo-500"
+          />
+        </label>
+      </div>
 
-            <div class="image-container tech-item" data-tech="FastApi" data-color="#009688">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/fast-api-icon.webp" alt="FastApi">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Django" data-color="#092E20">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/django-icon.webp" alt="Django">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Flask" data-color="#000000">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/flask-icon.webp" alt="Flask">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="HTML5" data-color="#E34F26">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/html-icon.webp" alt="HTML5">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="JavaScript" data-color="#F7DF1E">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/javascript-programming-language-icon.webp" alt="JavaScript">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="React" data-color="#61DAFB">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/react-js-icon.webp" alt="React">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Angular" data-color="#DD0031">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/angular-icon.webp" alt="Angular">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Vue.js" data-color="#42B883">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/vue-js-icon.webp" alt="Vue.js">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Next.js" data-color="#000000">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/next-js-icon.webp" alt="Next.js">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="PostgreSQL" data-color="#336791">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/postgresql-icon.webp" alt="PostgreSQL">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="MySQL" data-color="#00758F">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/mysql-icon.webp" alt="MySQL">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Redis" data-color="#DC382D">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/redis-icon.webp" alt="Redis">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Kafka" data-color="#000000">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/kafka-icon.webp" alt="Kafka">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="RabbitMQ" data-color="#FF6600">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/rabbitmq-icon.webp" alt="RabbitMQ">
-            </div>
-            
-            <div class="image-container tech-item" data-tech="Kubernetes" data-color="#326CE5">
-                <canvas class="pixelCanvas" width="60" height="60"></canvas>
-                <img class="sourceImage" src="/static/icons/kubernetes-icon.webp" alt="Kubernetes">
-            </div>
+      <button
+        type="submit"
+        class="w-full inline-flex justify-center items-center gap-2 px-6 py-3 bg-indigo-600 text-white font-mono text-sm rounded-md shadow hover:bg-indigo-700 transition">
+        &gt;_ Submit
+      </button>
 
-        </div>
-    </div>
+      <div id="success-message" class="hidden text-sm text-green-600"></div>
+      <div id="error-message" class="hidden text-sm text-red-600"></div>
+    </form>
+  </div>
 
-</div>
+</section>
 
-<script src="/static/js/index_animation_block.js"></script>
 <script src="/static/js/index_form_block.js"></script>
-<script src="/static/js/index_technology_block.js"></script>
 {% endblock %}

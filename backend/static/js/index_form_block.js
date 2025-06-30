@@ -1,48 +1,84 @@
-// form block
-const form = document.getElementById("contact-form");
-const successMessage = document.getElementById("success-message");
-const errorMessage = document.getElementById("error-message");
+/* -------------------- helpers -------------------- */
+function showMessage(el, msg, asHTML = false) {
+  if (asHTML) {
+    el.innerHTML = msg;
+  } else {
+    el.textContent = msg;
+  }
+  el.classList.remove("hidden");
+}
 
-if (form) {
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent page reload
+function hideMessage(el) {
+  el.classList.add("hidden");
+  el.textContent = "";
+  el.innerHTML = ""; // clear both just in case
+}
+
+/* -------------------- main -------------------- */
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const successMessage = document.getElementById("success-message");
+  const errorMessage = document.getElementById("error-message");
+  const submitBtn = form?.querySelector("button[type='submit']");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    // UI: loading state
+    submitBtn.disabled = true;
+    submitBtn.classList.add("opacity-60", "cursor-not-allowed");
+
+    // clear previous messages
+    hideMessage(successMessage);
+    hideMessage(errorMessage);
 
     const formData = new FormData(form);
 
     try {
-      const response = await fetch("/api/v1/contact_form_submit", {
+      const res = await fetch("/api/v1/contact_form_submit", {
         method: "POST",
         body: formData,
       });
 
-      let data;
+      // defensive JSON parse
+      let data = {};
       try {
-        data = await response.json();
+        data = await res.json();
       } catch {
-        data = {};
+        /* non-JSON response */
       }
 
-      if (response.ok) {
-        successMessage.innerHTML =
-          data.message || "Your submission was successful!";
-        successMessage.classList.add("visible");
-        errorMessage.classList.remove("visible");
+      if (res.ok) {
+        showMessage(
+          successMessage,
+          data.message || "Your submission was successful!",
+          /* asHTML = */ true // <-- render tags
+        );
         form.reset();
       } else {
-        errorMessage.innerHTML =
-          data.message || "An error occurred. Please try again.";
-        errorMessage.classList.add("visible");
-        successMessage.classList.remove("visible");
+        showMessage(
+          errorMessage,
+          data.message || "An error occurred. Please try again.",
+          /* asHTML = */ false // plain text for errors
+        );
       }
-    } catch (error) {
-      errorMessage.innerHTML = "A network error occurred. Please try again.";
-      errorMessage.classList.add("visible");
-      successMessage.classList.remove("visible");
-    }
+    } catch {
+      showMessage(
+        errorMessage,
+        "A network error occurred. Please try again.",
+        false
+      );
+    } finally {
+      // restore button
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("opacity-60", "cursor-not-allowed");
 
-    // Hide success message after 5 seconds
-    setTimeout(() => {
-      successMessage.classList.remove("visible");
-    }, 5000);
+      // auto-hide success after 5 s
+      if (!successMessage.classList.contains("hidden")) {
+        setTimeout(() => hideMessage(successMessage), 5000);
+      }
+    }
   });
-}
+});

@@ -1,17 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <div class="error-404">
-        <h1>404 - Page Not Found</h1>
+<main class="flex flex-col items-center justify-center text-center px-4 py-12">
+  <h1 class="text-3xl font-bold mb-4">404 - Page Not Found</h1>
 
-        <canvas id="spider-web"></canvas>
+  <canvas id="spider-web" class="w-full mb-10"></canvas>
 
-        <p>Oops! The page you're looking for doesn't exist.</p>
+  <p class="text-lg text-gray-600 mb-6">
+    Oops! The page you're looking for doesn't exist.
+  </p>
 
-        <a href="/" class="back-home-button">>_ Go Back Home</a>
-    </div>
-</div>
+  <a href="/" class="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-gray-800 transition">
+    Go back Home
+  </a>
+</main>
 
 <script src="/static/js/404_spider_web.js"></script>
 {% endblock %}

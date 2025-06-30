@@ -14,8 +14,12 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=PT+Mono&display=swap" rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- Preconnect for Tailwind CDN and css -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preload" href="/static/css/style.css" as="style">
+
+    <!-- CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/static/css/style.css">
 
     <!-- Preload Critical Images -->
@@ -45,17 +49,13 @@
         {% include "yandex_metrika.html" %}
     {% endif %}
 </head>
-<body>
-    <div class="header">
-        {% include "header.html" %}
-    </div>
+<body class="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-900">
 
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
+    {% include "header.html" %}
 
-    <div class="footer">
-        {% include "footer.html" %}
-    </div>
+    {% block content %}{% endblock %}
+
+    {% include "footer.html" %}
+
 </body>
 </html>

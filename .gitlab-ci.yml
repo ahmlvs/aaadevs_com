@@ -1,7 +1,16 @@
 stages:
+  - cleanup
   - build
   - test
   - deploy
+
+# ---------------- cleanup ----------------
+cleanup-docker-cache:
+  stage: cleanup
+  script:
+    # Remove build-cache, old images, stopped containers, dangling volumes
+    - docker builder prune -af  || true
+    - docker system  prune -af --volumes || true
 
 build-backend-job:
   stage: build

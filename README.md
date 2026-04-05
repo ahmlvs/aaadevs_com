@@ -23,4 +23,4 @@ npm run preview    # preview build locally
 
 ## Deploy
 
-DigitalOcean App Platform (static site). Auto-deploy on push to `main`.
+GitHub Pages via GitHub Actions. Auto-deploy on push to `main`.

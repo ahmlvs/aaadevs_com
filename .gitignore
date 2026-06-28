@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # vscode setting folder
 .vscode/
+
+# design working files (logo/favicon sources, drafts, exports)
+design/

@@ -10,8 +10,8 @@
     <img src="/images/logo.svg" alt="AAA Devs" class="h-auto w-72 max-w-full sm:w-[26rem]" />
   </div>
 
-  <!-- Title centered on page -->
-  <div class="relative flex flex-1 flex-col items-center justify-center">
+  <!-- Title centered on page (pb keeps it clear of the pinned scroll hint) -->
+  <div class="relative flex flex-1 flex-col items-center justify-center pb-28">
     <h1 class="text-5xl font-bold tracking-tight sm:text-7xl">
       AAA Devs
     </h1>
@@ -20,8 +20,8 @@
     </p>
   </div>
 
-  <!-- Scroll hint -->
-  <a href="#projects" class="relative mb-10 animate-bounce" aria-label="View our projects">
+  <!-- Scroll hint pinned to the bottom, decoupled from the title -->
+  <a href="#projects" class="absolute inset-x-0 bottom-10 mx-auto w-6 animate-bounce" aria-label="View our projects">
     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-text-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
     </svg>

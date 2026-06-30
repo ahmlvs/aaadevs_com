@@ -35,7 +35,7 @@ Static assets go in `public/` (`images/logo.svg` is the studio mark).
 - Accent: TRON-red (`#c23631`)
 - Font: Inter
 - Colors: bg `#0b0e11`, cards `#161b22`, text `#f0f0f0`, muted `#8b949e`, border `#21262d`
-- Detailed architecture doc: `.claude/architecture-landing-troniti.md`
+- Detailed architecture doc: [docs/architecture.md](../docs/architecture.md)
 
 ## Scaling
 

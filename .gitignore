@@ -23,8 +23,9 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# claude setting folder
-.claude/
+# Claude Code: version the shared project docs; keep local state out.
+.claude/*
+!.claude/CLAUDE.md
 
 # vscode setting folder
 .vscode/

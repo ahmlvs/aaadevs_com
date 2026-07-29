@@ -40,15 +40,17 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
     <title>{title}</title>
+    {/* Google Analytics */}
     {isProd && (
-      <!-- Google Analytics -->
-      <script async src="https://www.googletagmanager.com/gtag/js?id=G-XGBZ4DQ7TH"></script>
-      <script is:inline>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XGBZ4DQ7TH');
-      </script>
+      <>
+        <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-XGBZ4DQ7TH"></script>
+        <script is:inline>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-XGBZ4DQ7TH');
+        </script>
+      </>
     )}
   </head>
   <body class="min-h-screen antialiased">

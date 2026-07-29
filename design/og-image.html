@@ -1,0 +1,59 @@
+<!doctype html>
+<!--
+  Source for public/images/og-image.png (1200×630).
+  Render from the repo root:
+
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless=new --disable-gpu --hide-scrollbars \
+    --screenshot=public/images/og-image.png \
+    --window-size=1200,630 --virtual-time-budget=8000 \
+    "file://$PWD/design/og-image.html"
+-->
+<html>
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet" />
+<style>
+  * { margin: 0; padding: 0; }
+  body {
+    width: 1200px;
+    height: 630px;
+    background: #0b0e11;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+  }
+  .logo {
+    margin-top: 152px;
+    width: 210px;
+    height: auto;
+  }
+  .title {
+    margin-top: 108px;
+    font-size: 96px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #f0f0f0;
+    line-height: 1;
+  }
+  .tagline {
+    margin-top: 30px;
+    font-size: 32px;
+    font-weight: 400;
+    color: #8b949e;
+  }
+  .crypto { color: #f7941d; font-weight: 700; } /* troniti brand — the word points at the project card */
+  .ai { color: #93cafa; font-weight: 700; }
+  .dot { color: #5c646d; }
+</style>
+</head>
+<body>
+  <img class="logo" src="../public/images/logo.svg" />
+  <div class="title">AAA Devs</div>
+  <div class="tagline">Software studio <span class="dot">&middot;</span> building in <span class="crypto">crypto</span> &amp; <span class="ai">AI</span></div>
+</body>
+</html>

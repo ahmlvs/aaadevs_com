@@ -31,4 +31,6 @@ pnpm-debug.log*
 .vscode/
 
 # design working files (logo/favicon sources, drafts, exports)
-design/
+# ...except the SOURCE of the shipped public/images/og-image.png — keep them in sync
+design/*
+!design/og-image.html

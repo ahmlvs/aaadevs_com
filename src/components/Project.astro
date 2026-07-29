@@ -2,50 +2,82 @@
 ---
 
 <section id="projects" class="px-6 py-24 sm:py-32">
-  <div class="mx-auto max-w-3xl">
+  <div class="mx-auto max-w-4xl">
     <!-- Section label -->
     <p class="text-center text-sm font-medium uppercase tracking-[0.2em] text-text-muted">
       Our projects
     </p>
 
-    <!-- troniti card with thin red gradient border -->
-    <div class="mt-10 rounded-2xl bg-gradient-to-br from-accent/50 via-border to-border p-px">
-      <div class="rounded-2xl bg-bg-card p-8 sm:p-10">
-        <!-- Wordmark + status -->
-        <div class="flex flex-wrap items-center justify-between gap-4">
-          <div class="flex items-center gap-3">
-            <!-- troniti mark — tilted orbit: garnet core, white + red orbiting bodies -->
-            <svg viewBox="0 0 100 100" class="h-8 w-8 shrink-0 sm:h-9 sm:w-9" fill="none" aria-hidden="true">
-              <g transform="rotate(-20 50 50)">
-                <ellipse cx="50" cy="50" rx="34" ry="16" fill="none" stroke="#52525b" stroke-width="5" />
-                <circle cx="50" cy="50" r="8.5" fill="#b91c3c" />
-                <circle cx="84" cy="50" r="6" fill="#f4f4f5" />
-                <circle cx="16" cy="50" r="6" fill="#d12d4e" />
-              </g>
-            </svg>
-            <span class="text-2xl font-semibold tracking-tight text-text sm:text-3xl">troniti</span>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      <!-- troniti card with thin red gradient border -->
+      <div class="rounded-2xl bg-gradient-to-br from-accent/50 via-border to-border p-px">
+        <div class="flex h-full flex-col rounded-2xl bg-bg-card p-8">
+          <!-- Wordmark + status -->
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <!-- troniti mark — tilted orbit: garnet core, white + red orbiting bodies -->
+              <svg viewBox="0 0 100 100" class="h-8 w-8 shrink-0 sm:h-9 sm:w-9" fill="none" aria-hidden="true">
+                <g transform="rotate(-20 50 50)">
+                  <ellipse cx="50" cy="50" rx="34" ry="16" fill="none" stroke="#52525b" stroke-width="5" />
+                  <circle cx="50" cy="50" r="8.5" fill="#b91c3c" />
+                  <circle cx="84" cy="50" r="6" fill="#f4f4f5" />
+                  <circle cx="16" cy="50" r="6" fill="#d12d4e" />
+                </g>
+              </svg>
+              <span class="text-2xl font-semibold tracking-tight text-text sm:text-3xl">troniti</span>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-medium text-green-400">
+              <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+              Live
+            </span>
           </div>
-          <span class="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-medium text-green-400">
-            <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
-            Live
-          </span>
+
+          <!-- One-line description -->
+          <p class="mt-5 mb-8 text-lg text-text-muted">
+            Non-custodial TRON yield management
+          </p>
+
+          <!-- CTA -->
+          <a
+            href="https://troniti.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-auto inline-flex items-center gap-2 self-start rounded-xl bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-hover"
+          >
+            Visit troniti.com
+            <span aria-hidden="true">&rarr;</span>
+          </a>
         </div>
+      </div>
 
-        <!-- One-line description -->
-        <p class="mt-5 text-lg text-text-muted">
-          Non-custodial TRON yield management
-        </p>
+      <!-- plainai card with thin blue gradient border (brand blue) -->
+      <div class="rounded-2xl bg-gradient-to-br from-[#93cafa]/50 via-border to-border p-px">
+        <div class="flex h-full flex-col rounded-2xl bg-bg-card p-8">
+          <!-- Wordmark + status -->
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <img src="/images/plainai-logo.svg" alt="plainai" class="h-8 w-auto sm:h-9" />
+            <span class="inline-flex items-center gap-2 rounded-full border border-green-400/30 bg-green-400/10 px-3 py-1 text-xs font-medium text-green-400">
+              <span class="h-1.5 w-1.5 rounded-full bg-green-400"></span>
+              Live
+            </span>
+          </div>
 
-        <!-- CTA -->
-        <a
-          href="https://troniti.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-hover"
-        >
-          Visit troniti.com
-          <span aria-hidden="true">&rarr;</span>
-        </a>
+          <!-- One-line description -->
+          <p class="mt-5 mb-8 text-lg text-text-muted">
+            AI tools directory — honest reviews, news &amp; guides
+          </p>
+
+          <!-- CTA -->
+          <a
+            href="https://plainai.tech"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-auto inline-flex items-center gap-2 self-start rounded-xl bg-accent px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-hover"
+          >
+            Visit plainai.tech
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </div>
     </div>
   </div>

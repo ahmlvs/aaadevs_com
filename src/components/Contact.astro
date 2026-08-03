@@ -1,9 +1,33 @@
 ---
 // Screen 4 of the ladder — the closer: who's inside and how to reach out.
-// SELECT * FROM people returns exactly one row — (1 row) is the honest
-// punchline that rhymes with the hero's "AAA quality, indie size". The
-// collaboration comment states the positioning: we build our own things,
-// but the door is open.
+// People rows follow the how_we_build anatomy; link color = affiliation
+// (studio red / plainai blue). The collaboration comment states the
+// positioning: we build our own things, but the door is open.
+const people = [
+  {
+    name: "andrejs",
+    desc: "Founder & engineer — builds troniti, tech behind plainai.",
+    url: "https://x.com/ahmlvs",
+    label: "@ahmlvs",
+    tone: "text-accent-hover",
+  },
+  {
+    name: "elena",
+    desc: "Makes plainai — reviews, news & guides.",
+    url: "https://x.com/ehmlvs",
+    label: "@ehmlvs",
+    tone: "text-[#93cafa]",
+  },
+  {
+    name: "olga",
+    desc: "Makes plainai — reviews, news & guides.",
+    url: "https://x.com/olianayda",
+    label: "@olianayda",
+    tone: "text-[#93cafa]",
+  },
+];
+
+const email = "ahmlvs@aaadevs.com";
 ---
 
 <section id="contact" class="px-6 pb-24 sm:pb-32">
@@ -13,29 +37,69 @@
       <span class="mr-2 text-text-muted">aaadevs &gt;_</span><span class="text-accent">SELECT</span> * <span class="text-accent">FROM</span> people;
     </h2>
 
-    <div class="mt-10 flex flex-col gap-1.5 border-y border-border py-4 md:flex-row md:items-baseline md:gap-6">
-      <span class="mono shrink-0 text-sm text-text md:w-48">andrejs</span>
-      <p class="flex-1 text-sm text-text-muted">Founder & engineer — ships both products.</p>
-      <a
-        href="https://x.com/ahmlvs"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mono shrink-0 text-sm text-accent-hover transition-colors hover:text-text"
-      >
-        @ahmlvs ↗
-      </a>
+    <div class="mt-10">
+      {
+        people.map((p) => (
+          <div class="flex flex-col gap-1.5 border-b border-border py-4 last:border-b-0 md:flex-row md:items-baseline md:gap-6">
+            <span class="mono shrink-0 text-sm text-text md:w-48">{p.name}</span>
+            <p class="flex-1 text-sm text-text-muted">{p.desc}</p>
+            <a
+              href={p.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={`mono shrink-0 text-sm transition-colors hover:text-text ${p.tone}`}
+            >
+              {p.label} ↗
+            </a>
+          </div>
+        ))
+      }
     </div>
 
-    <p class="mono mt-6 text-center text-sm text-text-muted">(1 row)</p>
+    <p class="mono mt-6 text-center text-sm text-text-muted">(3 rows)</p>
 
     <div class="mt-14 text-center">
       <p class="mono text-sm text-text-muted">-- always open to interesting collaborations</p>
-      <a
-        href="mailto:ahmlvs@aaadevs.com"
-        class="mono mt-3 inline-block text-lg text-accent-hover transition-colors hover:text-text sm:text-xl"
-      >
-        ahmlvs@aaadevs.com
-      </a>
+      <div class="mt-3 flex items-center justify-center gap-2.5">
+        <a
+          href={`mailto:${email}`}
+          class="mono inline-block text-lg text-accent-hover transition-colors hover:text-text sm:text-xl"
+        >
+          {email}
+        </a>
+        <button
+          id="copy-email"
+          data-email={email}
+          aria-label="Copy email address"
+          class="cursor-pointer text-text-muted transition-colors hover:text-text"
+        >
+          <svg id="copy-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+          </svg>
+          <svg id="copied-icon" xmlns="http://www.w3.org/2000/svg" class="hidden h-5 w-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
+<script is:inline>
+  const btn = document.getElementById('copy-email');
+  if (btn) {
+    btn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(btn.dataset.email);
+        document.getElementById('copy-icon').classList.add('hidden');
+        document.getElementById('copied-icon').classList.remove('hidden');
+        setTimeout(() => {
+          document.getElementById('copy-icon').classList.remove('hidden');
+          document.getElementById('copied-icon').classList.add('hidden');
+        }, 1500);
+      } catch {
+        /* clipboard unavailable (http/old browser) — the mailto link still works */
+      }
+    });
+  }
+</script>

@@ -1,30 +1,30 @@
 ---
-// Screen 1 of the ladder: "who is this?" The wordmark IS the query — the rest
-// of the hero speaks the same SQL-console dialect (mono `--` comment; the
-// category line doubles as the h1, brand name kept for crawlers via sr-only).
+// Screen 1 of the ladder: "who is this?" Logo up top as the signature (small),
+// the category line + the -- comment carry the message at page center, scroll
+// hint pinned to the bottom. Brand name kept for crawlers via sr-only.
 ---
 
 <section class="relative flex min-h-screen flex-col items-center overflow-hidden px-6">
   {/* subtle studio-red glow */}
   <div
-    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(179,66,56,0.10)_0%,_transparent_70%)]"
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(194,54,49,0.10)_0%,_transparent_70%)]"
   >
   </div>
 
-  <div class="relative flex flex-1 flex-col items-center justify-center pb-28 text-center">
-    <img
-      src="/images/logo.svg"
-      alt="SELECT 'AAA devs'; — the AAA Devs wordmark"
-      class="h-auto w-72 max-w-full sm:w-[26rem]"
-    />
+  {/* the signature: logo query, small, at the top */}
+  <div class="relative mt-14">
+    <img src="/images/logo.svg" alt="SELECT 'AAA devs'; — the AAA Devs wordmark" class="h-auto w-56 max-w-full sm:w-72" />
+  </div>
 
-    <h1 class="mt-10 text-balance text-xl font-semibold sm:text-2xl">
+  {/* the message: category + comment, centered on the page */}
+  <div class="relative flex flex-1 flex-col items-center justify-center pb-28 text-center">
+    <h1 class="text-balance text-3xl font-semibold tracking-tight sm:text-4xl">
       <span class="sr-only">AAA Devs — </span>
       Software studio <span class="text-text-muted/60">&middot;</span> building in{" "}
       <span class="text-[#f7941d]">crypto</span> &amp; <span class="text-[#93cafa]">AI</span>
     </h1>
 
-    <p class="mt-4 font-mono text-sm text-text-muted">-- AAA quality, indie size</p>
+    <p class="mt-5 font-mono text-base text-text-muted sm:text-lg">-- AAA quality, indie size</p>
   </div>
 
   <a

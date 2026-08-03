@@ -1,0 +1,41 @@
+---
+// Screen 4 of the ladder — the closer: who's inside and how to reach out.
+// SELECT * FROM people returns exactly one row — (1 row) is the honest
+// punchline that rhymes with the hero's "AAA quality, indie size". The
+// collaboration comment states the positioning: we build our own things,
+// but the door is open.
+---
+
+<section id="contact" class="px-6 pb-24 sm:pb-32">
+  <div class="mx-auto max-w-3xl">
+    {/* single line on purpose: Astro collapses whitespace at markup line breaks */}
+    <h2 class="mono text-center text-base font-medium text-text sm:text-lg">
+      <span class="mr-2 text-text-muted">aaadevs &gt;_</span><span class="text-accent">SELECT</span> * <span class="text-accent">FROM</span> people;
+    </h2>
+
+    <div class="mt-10 flex flex-col gap-1.5 border-y border-border py-4 md:flex-row md:items-baseline md:gap-6">
+      <span class="mono shrink-0 text-sm text-text md:w-48">andrejs</span>
+      <p class="flex-1 text-sm text-text-muted">Founder & engineer — ships both products.</p>
+      <a
+        href="https://x.com/ahmlvs"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mono shrink-0 text-sm text-accent-hover transition-colors hover:text-text"
+      >
+        @ahmlvs ↗
+      </a>
+    </div>
+
+    <p class="mono mt-6 text-center text-sm text-text-muted">(1 row)</p>
+
+    <div class="mt-14 text-center">
+      <p class="mono text-sm text-text-muted">-- always open to interesting collaborations</p>
+      <a
+        href="mailto:ahmlvs@aaadevs.com"
+        class="mono mt-3 inline-block text-lg text-accent-hover transition-colors hover:text-text sm:text-xl"
+      >
+        ahmlvs@aaadevs.com
+      </a>
+    </div>
+  </div>
+</section>

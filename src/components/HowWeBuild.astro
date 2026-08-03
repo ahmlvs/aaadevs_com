@@ -2,36 +2,44 @@
 // Screen 3 of the ladder: "how do you work — can I trust you?" A lighter
 // result set than the projects screen: four snake_case facts, each with a
 // live link to verify it (the don't-trust-verify DNA shared with troniti).
+// Link color = destination brand: troniti orange, plainai blue, the studio's
+// own profiles (X, GitHub) keep the studio red — the same language the project
+// rows and the hero words speak.
 const facts = [
   {
     name: "build_in_public",
     desc: "The work ships daily, in the open — wins, misses, numbers.",
     url: "https://x.com/ahmlvs",
     label: "x.com/ahmlvs",
+    tone: "text-accent-hover",
   },
   {
     name: "runs_unattended",
     desc: "Products run on automated daily cycles in production — not demos.",
     url: "https://troniti.com/#engine",
     label: "troniti.com/#engine",
+    tone: "text-[#f7941d]",
   },
   {
     name: "open_where_possible",
     desc: "Sites, tooling and the process live on GitHub.",
     url: "https://github.com/ahmlvs",
     label: "github.com/ahmlvs",
+    tone: "text-accent-hover",
   },
   {
     name: "write_it_up",
     desc: "The mechanics behind the products, explained in plain words.",
     url: "https://troniti.com/learn/",
     label: "troniti.com/learn",
+    tone: "text-[#f7941d]",
   },
   {
     name: "honest_by_default",
     desc: "If a tool is mediocre, the review says so — no pay-to-play.",
     url: "https://plainai.tech",
     label: "plainai.tech",
+    tone: "text-[#93cafa]",
   },
 ];
 ---
@@ -53,7 +61,7 @@ const facts = [
               href={f.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="mono shrink-0 text-sm text-accent-hover transition-colors hover:text-text"
+              class={`mono shrink-0 text-sm transition-colors hover:text-text ${f.tone}`}
             >
               {f.label} ↗
             </a>

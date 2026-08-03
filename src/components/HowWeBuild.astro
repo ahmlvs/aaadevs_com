@@ -1,0 +1,61 @@
+---
+// Screen 3 of the ladder: "how do you work — can I trust you?" A lighter
+// result set than the projects screen: four snake_case facts, each with a
+// live link to verify it (the don't-trust-verify DNA shared with troniti).
+const facts = [
+  {
+    name: "build_in_public",
+    desc: "The work ships daily, in the open — wins, misses, numbers.",
+    url: "https://x.com/ahmlvs",
+    label: "x.com/ahmlvs",
+  },
+  {
+    name: "runs_unattended",
+    desc: "Products run on automated daily cycles in production — not demos.",
+    url: "https://troniti.com/#engine",
+    label: "troniti.com/#engine",
+  },
+  {
+    name: "open_where_possible",
+    desc: "Sites, tooling and the process live on GitHub.",
+    url: "https://github.com/ahmlvs",
+    label: "github.com/ahmlvs",
+  },
+  {
+    name: "write_it_up",
+    desc: "The mechanics behind the products, explained in plain words.",
+    url: "https://troniti.com/learn/",
+    label: "troniti.com/learn",
+  },
+];
+---
+
+<section id="how" class="px-6 pb-24 sm:pb-32">
+  <div class="mx-auto max-w-3xl">
+    {/* single line on purpose: Astro collapses whitespace at markup line breaks */}
+    <h2 class="mono text-center text-base font-medium text-text sm:text-lg">
+      <span class="mr-2 text-text-muted">aaadevs &gt;_</span><span class="text-accent">SELECT</span> * <span class="text-accent">FROM</span> how_we_build;
+    </h2>
+
+    <div class="mt-10">
+      {
+        facts.map((f) => (
+          <div class="flex flex-col gap-1.5 border-b border-border py-4 last:border-b-0 md:flex-row md:items-baseline md:gap-6">
+            <span class="mono shrink-0 text-sm text-text md:w-48">{f.name}</span>
+            <p class="flex-1 text-sm text-text-muted">{f.desc}</p>
+            <a
+              href={f.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mono shrink-0 text-sm text-accent-hover transition-colors hover:text-text"
+            >
+              {f.label} ↗
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mono mt-6 text-center text-sm text-text-muted">(4 rows)</p>
+  </div>
+</section>

@@ -8,10 +8,14 @@
   --color-accent: #c23631;
   --color-accent-hover: #e04b45;
   --color-border: #21262d;
+
+  /* self-hosted via @fontsource-variable — the Variable suffix is the family name;
+     --font-mono makes Tailwind's font-mono utility serve the house mono */
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "SFMono-Regular", Menlo, monospace;
 }
 
 body {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Inter Variable", system-ui, sans-serif;
   background-color: var(--color-bg);
   color: var(--color-text);
 }

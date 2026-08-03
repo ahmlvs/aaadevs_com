@@ -1,5 +1,9 @@
 ---
 import "../styles/global.css";
+import "@fontsource-variable/inter";
+import "@fontsource-variable/jetbrains-mono";
+import interLatinUrl from "@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url";
+import monoLatinUrl from "@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2?url";
 
 interface Props {
   title: string;
@@ -10,8 +14,35 @@ const isProd = import.meta.env.PROD;
 
 const {
   title,
-  description = "AAA Devs is a software studio building in crypto and AI. Projects: troniti — non-custodial TRON yield management, and PlainAI — AI tools directory with honest reviews, news and guides.",
+  description = "AAA Devs is a two-product software studio: troniti (non-custodial TRON yield) and plainai (honest AI tools directory) — built in public, indie size.",
 } = Astro.props;
+
+// The entity layer: "AAA Devs" is the canonical name, "aaadevs" the one-word
+// alternate (captures the navigational spelling); sameAs closes the identity
+// loop with the same profiles the footer links.
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "AAA Devs",
+  alternateName: "aaadevs",
+  url: "https://aaadevs.com",
+  logo: "https://aaadevs.com/apple-touch-icon.png",
+  description:
+    "Software studio building its own products in crypto and AI: troniti (non-custodial TRON yield operator) and plainai (AI tools directory).",
+  sameAs: [
+    "https://x.com/ahmlvs",
+    "https://github.com/ahmlvs",
+    "https://coinmarketcap.com/community/profile/ahmlvs/",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "AAA Devs",
+  alternateName: "aaadevs",
+  url: "https://aaadevs.com",
+};
 ---
 
 <!doctype html>
@@ -26,8 +57,11 @@ const {
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="AAA Devs" />
     <meta property="og:url" content={`https://aaadevs.com${Astro.url.pathname}`} />
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ahmlvs" />
+    <meta name="twitter:creator" content="@ahmlvs" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="https://aaadevs.com/images/og-image.png" />
@@ -36,10 +70,11 @@ const {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="theme-color" content="#c23631" />
     <link rel="canonical" href={`https://aaadevs.com${Astro.url.pathname}`} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet" />
+    <link rel="preload" as="font" type="font/woff2" href={interLatinUrl} crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href={monoLatinUrl} crossorigin />
     <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
     {/* Google Analytics */}
     {isProd && (
       <>

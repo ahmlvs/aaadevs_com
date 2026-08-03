@@ -1,32 +1,43 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-// The 404 speaks the house dialect: the query you "ran" (the actual path is
-// injected client-side), a psql-shaped error, and the HINT as the way home.
+// The 404 speaks the house dialect and mirrors the homepage composition:
+// logo up top, the failed query (actual path injected client-side) centered,
+// and the way home is the one query that works.
 ---
 
 <BaseLayout title="404 — AAA Devs">
-  <section class="flex min-h-screen flex-col items-center justify-center px-6">
-    <h1 class="sr-only">404 — page not found</h1>
-
-    <a href="/">
-      <img src="/images/logo.svg" alt="AAA Devs" class="h-auto w-44 max-w-full sm:w-56" />
-    </a>
-
-    <div class="mono mt-12 w-full max-w-xl text-left text-sm sm:text-base">
-      {/* single line on purpose: Astro collapses whitespace at markup line breaks */}
-      <p class="text-text">
-        <span class="mr-2 text-text-muted">aaadevs &gt;_</span><span class="text-accent">SELECT</span> * <span class="text-accent">FROM</span> pages <span class="text-accent">WHERE</span> path = <span class="text-green-400">'<span id="lost-path">/lost</span>'</span>;
-      </p>
-      <p class="mt-4 text-accent-hover">ERROR:&nbsp; relation "this_page" does not exist</p>
-      <p class="mt-1 text-text-muted">HINT:&nbsp;&nbsp; everything that does exist is on the homepage.</p>
+  <section class="relative flex min-h-screen flex-col items-center overflow-hidden px-6">
+    {/* same studio-red glow as the homepage */}
+    <div
+      class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(194,54,49,0.10)_0%,_transparent_70%)]"
+    >
     </div>
 
-    <a
-      href="/"
-      class="mt-12 rounded-xl bg-accent px-8 py-3 font-semibold text-white transition-colors hover:bg-accent-hover"
-    >
-      Back to home
+    <h1 class="sr-only">404 — page not found</h1>
+
+    <a href="/" class="relative mt-14">
+      <img src="/images/logo.svg" alt="AAA Devs" class="h-auto w-56 max-w-full sm:w-72" />
     </a>
+
+    <div class="relative flex flex-1 flex-col items-center justify-center pb-24">
+      {/* w-fit: the block centers by its longest line — true optical centering */}
+      <div class="mono w-fit text-left text-sm sm:text-base">
+        {/* single line on purpose: Astro collapses whitespace at markup line breaks */}
+        <p class="text-text">
+          <span class="mr-2 text-text-muted">aaadevs &gt;_</span><span class="text-accent">SELECT</span> * <span class="text-accent">FROM</span> pages <span class="text-accent">WHERE</span> path = <span class="text-green-400">'<span id="lost-path">/lost</span>'</span>;
+        </p>
+        <p class="mt-4 text-accent-hover">ERROR:&nbsp; relation "this_page" does not exist</p>
+        <p class="mt-1 text-text-muted">HINT:&nbsp;&nbsp; everything that does exist is on the homepage.</p>
+      </div>
+
+      {/* the way home is the one query that works */}
+      <a
+        href="/"
+        class="mono mt-12 rounded-lg border border-accent/60 px-6 py-3 text-accent-hover transition-colors hover:bg-accent hover:text-white"
+      >
+        SELECT * FROM homepage;
+      </a>
+    </div>
   </section>
 </BaseLayout>
 

@@ -66,9 +66,10 @@ const projects = [
                   <span class="h-1.5 w-1.5 rounded-full bg-green-400" />
                   live
                 </span>
-                {/* fixed column: domains differ in length — without it the live
-                    pills drift out of vertical alignment between rows */}
-                <span class={`w-32 text-right text-text-muted transition-colors ${p.hoverDomain}`}>{p.domain} ↗</span>
+                {/* md+: fixed right-aligned column so the pills align between rows
+                    (domains differ in length); mobile packs the domain right after
+                    the pill — fixed width there reads as a stray gap */}
+                <span class={`text-text-muted transition-colors md:w-32 md:text-right ${p.hoverDomain}`}>{p.domain} ↗</span>
               </div>
             </div>
           </a>

@@ -10,6 +10,7 @@ const people = [
     url: "https://x.com/ahmlvs",
     label: "@ahmlvs",
     tone: "text-accent-hover",
+    edge: "from-[#c23631]/50",
   },
   {
     name: "elena",
@@ -17,6 +18,7 @@ const people = [
     url: "https://x.com/ehmlvs",
     label: "@ehmlvs",
     tone: "text-[#93cafa]",
+    edge: "from-[#93cafa]/50",
   },
   {
     name: "olga",
@@ -24,6 +26,7 @@ const people = [
     url: "https://x.com/olianayda",
     label: "@olianayda",
     tone: "text-[#93cafa]",
+    edge: "from-[#93cafa]/50",
   },
 ];
 
@@ -42,17 +45,19 @@ const email = "hello@aaadevs.com";
     <div class="mt-10 grid gap-4 md:grid-cols-3">
       {
         people.map((p) => (
-          <div class="rounded-xl border border-border bg-bg-card p-6">
-            <p class="mono text-base text-text">{p.name}</p>
-            <p class="mt-2 text-sm leading-relaxed text-text-muted">{p.desc}</p>
-            <a
-              href={p.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              class={`mono mt-4 inline-block text-sm transition-colors hover:text-text ${p.tone}`}
-            >
-              {p.label} ↗
-            </a>
+          <div class={`rounded-xl bg-gradient-to-br ${p.edge} via-border to-border p-px`}>
+            <div class="h-full rounded-xl bg-bg-card p-6">
+              <p class="mono text-base text-text">{p.name}</p>
+              <p class="mt-2 text-sm leading-relaxed text-text-muted">{p.desc}</p>
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class={`mono mt-4 inline-block text-sm transition-colors hover:text-text ${p.tone}`}
+              >
+                {p.label} ↗
+              </a>
+            </div>
           </div>
         ))
       }
